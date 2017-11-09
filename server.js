@@ -1,7 +1,6 @@
 const express = require('express');
 const bodyParser = require('body-parser');
 const cookieParser = require('cookie-parser');
-const sassMiddleware = require('node-sass-middleware');
 const path = require('path');
 const exphbs = require('express-handlebars');
 const app = express();
@@ -27,17 +26,6 @@ app.use(cookieParser());
 app.use('',home);
 
 app.use('/public', express.static(path.join(__dirname, 'public')));
-
-app.use(sassMiddleware({
-    /* Options */
-    src: __dirname,
-    dest: path.join(__dirname, 'public/assets/scss'),
-    debug: true,
-    outputStyle: 'compressed',
-    prefix: '/public/assets/css' // Where prefix is at <link rel="stylesheets" href="prefix/style.css"/>
-}));
-// Note: you must place sass-middleware *before* `express.static` or else it will
-// not work.
 
 
 // Models.sequelize.sync({ force: false }).then(function() {
