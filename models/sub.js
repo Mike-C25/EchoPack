@@ -1,13 +1,11 @@
 module.exports = function(sequelize, DataTypes) {
-  var Post = sequelize.define("Post", {
+  var Sub = sequelize.define("Sub", {
     id: DataTypes.INTEGER,
-    subId: DataTypes.INTEGER,
+    authorUserId: DataTypes.INTEGER,
     title: DataType.STRING,
-    content:  DataTypes.STRING,
-    authorUserId:  DataTypes.STRING,
     score:  DataTypes.INTEGER,
     sentimentScore: DataTypes.INTEGER,
     Date TIMESTAMP NOT NULL
   });
-  return Post;
+  return Sub;
 };
