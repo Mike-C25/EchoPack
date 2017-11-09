@@ -1,0 +1,26 @@
+{
+  "name": "echopack",
+  "version": "1.0.0",
+  "description": "A forum that provides a way for people communicate to other users about relevant topics",
+  "main": "index.js",
+  "dependencies": {
+    "express": "^4.16.2",
+    "express-handlebars": "^3.0.0",
+    "moment": "^2.19.1",
+    "sequelize": "^4.22.5"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Mike-C25/EchoPack.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Mike-C25/EchoPack/issues"
+  },
+  "homepage": "https://github.com/Mike-C25/EchoPack#readme"
+}
