@@ -20,7 +20,8 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "watch": "concurrently \"npm run sass\" \"npm start\"",
     "sass": "node ./tasks/sass.js",
-    "start": "node server.js"
+    "start": "node server.js",
+    "watch:test": "npm run start && npm run sass"
   },
   "repository": {
     "type": "git",

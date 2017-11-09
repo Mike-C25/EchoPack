@@ -28,13 +28,13 @@ function compileSass(options = {}) {
 
 // Expanded
 compileSass({
-    src : 'public/assets/scss/main.scss',
+    src : 'public/assets/sass/main.scss',
     dest: 'public/assets/css/main.css'
 });
 
 // Minified
 compileSass({
-    src : 'public/assets/scss/main.scss',
+    src : 'public/assets/sass/main.scss',
     dest : 'public/assets/css/main.min.css',
     style: 'compressed'
 });
