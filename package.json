@@ -4,10 +4,13 @@
   "description": "A forum that provides a way for people communicate to other users about relevant topics",
   "main": "index.js",
   "dependencies": {
+    "body-parser": "^1.18.2",
+    "cookie-parser": "^1.4.3",
     "express": "^4.16.2",
     "express-handlebars": "^3.0.0",
     "moment": "^2.19.1",
     "node-sass": "^4.6.0",
+    "node-sass-middleware": "^0.11.0",
     "path": "^0.12.7",
     "sequelize": "^4.22.5"
   },
