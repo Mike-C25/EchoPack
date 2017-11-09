@@ -1,15 +1,14 @@
-var express = require('express');
+const express = require('express');
 const bodyParser = require('body-parser');
 const cookieParser = require('cookie-parser');
-var sassMiddleware = require('node-sass-middleware');
-var path = require('path');
-var app = express();
-var exphbs = require('express-handlebars');
+const sassMiddleware = require('node-sass-middleware');
+const path = require('path');
+const exphbs = require('express-handlebars');
+const app = express();
+const home = require('./controllers/homeController.js');
 
-
-var app = express();
-var PORT = process.env.PORT || 3000;
-var server_host = process.env.YOUR_HOST || '0.0.0.0';
+const PORT = process.env.PORT || 3000;
+const server_host = process.env.YOUR_HOST || '0.0.0.0';
 
 // Set up view w. Handlebars
 app.engine('handlebars', exphbs({ defaultLayout: 'main' }));
@@ -24,6 +23,8 @@ app.set('view engine', 'handlebars');
 // }));
 app.use(cookieParser());
 
+//Use Controllers
+app.use('',home);
 
 app.use('/public', express.static(path.join(__dirname, 'public')));
 
