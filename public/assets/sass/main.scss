@@ -1,0 +1,22 @@
+@import './partials/normalize';
+
+.header {
+    position: fixed;
+    height: 100px;
+    width: 100%;
+    top: 0;
+}
+
+.container {
+    margin-top: 100px;
+    .row {
+        .l-col {
+			width: 70%;
+			float: left;
+        }
+        .r-col {
+			width: 30%;
+			float: right;
+        }
+    }
+}
