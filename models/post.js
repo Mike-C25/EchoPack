@@ -1,7 +1,7 @@
 module.exports = function(sequelize, DataTypes) {
   var Post = sequelize.define("Post", {
     id: DataTypes.INTEGER,
-    subId: DataTypes.INTEGER,
+    boxId: DataTypes.INTEGER,
     title: DataType.STRING,
     content:  DataTypes.STRING,
     authorUserId:  DataTypes.STRING,

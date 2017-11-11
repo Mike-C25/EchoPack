@@ -3,7 +3,11 @@ module.exports = function(sequelize, DataTypes) {
     id: DataTypes.INTEGER,
     authorUserId: DataTypes.INTEGER,
     title: DataType.STRING,
-    score:  DataTypes.INTEGER,
+    description: DataType.STRING,
+    score:  {
+    	DataTypes.INTEGER,
+    	defaultValue: 1 
+    }
     sentimentScore: DataTypes.INTEGER,
     Date TIMESTAMP NOT NULL
   });
