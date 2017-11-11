@@ -6,6 +6,10 @@ router.get("/", function(req,res){
 	res.render("home");
 })
 
+router.get("/userpage", function(req,res){
+	res.render("userpage");
+})
+
 
 module.exports = router;
 

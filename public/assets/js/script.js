@@ -8,4 +8,10 @@ $(document).ready(function() {
     }
 
     setInterval(update, 60000);
+
+    // const hexArray = ['#EEC25E','#F79D84','#59CD90','#39A0ED','#EE6352'];
+    // const randBg = Math.floor(Math.random()*hexArray.length);
+
+
+    // $('.header').css('background', hexArray[randBg]);
 });
