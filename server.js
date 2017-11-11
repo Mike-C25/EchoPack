@@ -12,9 +12,11 @@ const path = require('path');
 const exphbs = require('express-handlebars');
 const app = express();
 const home = require('./controllers/homeController.js');
+const env = require('dotenv/config')
 
 const PORT = process.env.PORT || 3000;
 const server_host = process.env.YOUR_HOST || '0.0.0.0';
+
 
 // Set up view w. Handlebars
 app.engine('handlebars', exphbs({ defaultLayout: 'main' }));
