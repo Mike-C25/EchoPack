@@ -1,15 +1,19 @@
 module.exports = function(sequelize, DataTypes) {
   var Box = sequelize.define("Box", {
-    id: DataTypes.INTEGER,
+    id: { 
+      type: DataTypes.INTEGER, 
+      primaryKey: true,
+      autoIncrement: true
+    },
     authorUserId: DataTypes.INTEGER,
-    title: DataType.STRING,
-    description: DataType.STRING,
+    title: DataTypes.STRING,
+    description: DataTypes.STRING,
     score:  {
-    	DataTypes.INTEGER,
+    	type: DataTypes.INTEGER,
     	defaultValue: 1 
-    }
+    },
     sentimentScore: DataTypes.INTEGER,
-    Date TIMESTAMP NOT NULL
+    Date: DataTypes.DATE
   });
   return Box;
 };
