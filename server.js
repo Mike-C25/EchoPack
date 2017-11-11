@@ -13,6 +13,7 @@ const exphbs = require('express-handlebars');
 const app = express();
 const home = require('./controllers/homeController.js');
 const env = require('dotenv/config')
+const db = require("./models");
 
 const PORT = process.env.PORT || 3000;
 const server_host = process.env.YOUR_HOST || '0.0.0.0';
@@ -41,9 +42,15 @@ app.use(cookieParser());
 app.use('', home);
 
 
-
+/*
 // Models.sequelize.sync({ force: false }).then(function() {
 app.listen(PORT, server_host, function() {
     console.log(`Listening on PORT: ${PORT}`);
 });
 // });
+*/
+db.sequelize.sync().then(function(){
+	app.listen(PORT, function(){
+		console.log(`Listening on PORT: ${PORT}`);
+	})
+})
