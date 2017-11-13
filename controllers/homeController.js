@@ -11,6 +11,16 @@ router.get("/userpage", function(req,res){
 })
 
 
+// /box/:forum name
+router.get("/box/:fn?", function(req,res){
+	res.render("forum");
+})
+
+// /post/:post title
+router.get("/post/:pt?", function(req,res){
+	res.render("postpage");
+})
+
 module.exports = router;
 
 //Get most popular posts

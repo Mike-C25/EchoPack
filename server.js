@@ -49,7 +49,7 @@ app.listen(PORT, server_host, function() {
 });
 // });
 */
-db.sequelize.sync().then(function(){
+db.sequelize.sync({force:false}).then(function(){
 	app.listen(PORT, function(){
 		console.log(`Listening on PORT: ${PORT}`);
 	})
