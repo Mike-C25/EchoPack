@@ -1,35 +1,82 @@
-.forum-box-card{
-	position: relative;
-	padding: 5px;
-	.vote-container {
+.forum-box-card {
+    position: relative;
+    padding: 5px;
+    .vote-container {
         position: absolute;
-        width: 10%;
-        height: auto;
-        top: 50%;
-        width: 10%;
-		transform: translateY(-50%);
+        width: 5%;
+        height: 100%;
+        top: 5%;
         .up-v {
+            position: relative;
             display: block;
+            width: 0;
+            height: 0;
+            border-left: 9px solid transparent;
+            border-right: 9px solid transparent;
+            border-bottom: 17px solid $bl;
+            margin: 0px auto;
+            margin-bottom: 5px;
+            cursor: pointer;
+            transition: all .2s ease-in-out;
+            &:hover {
+                border-bottom: 17px solid #cdcdcd;
+                transform: translateY(-2px);
+            }
+            .up-score {
+                position: absolute;
+                right: -60px;
+                top: 0px;
+                min-width: 50px;
+                letter-spacing: 1px;
+                text-align: center;
+            }
         }
         .down-v {
+            position: relative;
             display: block;
+            width: 0;
+            height: 0;
+            border-left: 9px solid transparent;
+            border-right: 9px solid transparent;
+            border-top: 17px solid $bl;
+            cursor: pointer;
+            margin: 0px auto;
+            transition: all .2s ease-in-out;
+            &:hover {
+                border-top: 17px solid #cdcdcd;
+                transform: translateY(2px);
+            }
+            .down-score {
+                position: absolute;
+                right: -60px;
+                top: -17px;
+                min-width: 50px;
+                letter-spacing: 1px;
+                text-align: center;
+            }
         }
         &:after {
             content: '';
             clear: both;
+            display: block;
         }
     }
     .body-container {
         width: 85%;
         float: right;
-        .score{
-        	position: absolute;
-        	right: 2%;
-        	top: 2%;	
+        .score {
+            position: absolute;
+            right: 2%;
+            top: 7%;
         }
         &:after {
             content: '';
             clear: both;
+        }
+        .comment{
+        	position: absolute;
+        	bottom: 0px;
+        	right: 2%;
         }
     }
     &:after {

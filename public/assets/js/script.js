@@ -14,4 +14,6 @@ $(document).ready(function() {
 
 
     // $('.header').css('background', hexArray[randBg]);
+
+    
 });

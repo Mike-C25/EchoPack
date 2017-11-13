@@ -27,7 +27,6 @@ body {
         text-decoration: none;
         transition: all .2s ease-in-out;
         &:hover {
-            color: #cdcdcd;
             text-decoration: none;
         }
     }
@@ -44,7 +43,8 @@ body {
     }
     &:after {
         content: "";
-        clear: both
+        clear: both;
+        display: block;
     }
     .row {
         .l-col {
@@ -74,7 +74,8 @@ body {
             }
             &:after {
                 content: "";
-                clear: both
+                clear: both;
+                display: block;
             }
         }
         .r-col {
@@ -83,7 +84,8 @@ body {
             float: right;
             &:after {
                 content: "";
-                clear: both
+                clear: both;
+                display: block;
             }
             .user-container {
                 width: 100%;
