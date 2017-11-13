@@ -1,0 +1,36 @@
+.comment-container {
+    padding: 10px;
+    margin: 5px;
+    min-height: 100px;
+    position: relative;
+    .vote-container {
+        position: absolute;
+        width: 10%;
+        height: 100%;
+        top: 50%;
+        width: 10%;
+
+        .up-v {
+            display: block;
+        }
+        .down-v {
+            display: block;
+        }
+        &:after {
+            content: '';
+            clear: both;
+        }
+    }
+    .body-container {
+        width: 90%;
+        float: right;
+        &:after {
+            content: '';
+            clear: both;
+        }
+    }
+    &:after {
+        content: '';
+        clear: both;
+    }
+}
