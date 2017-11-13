@@ -1,0 +1,41 @@
+
+
+.header {
+    position: fixed;
+    height: 65px;
+    width: 100%;
+    top: 0;
+    background: $bl;
+    font-family: 'Open Sans', sans-serif;
+    font-weight: 700;
+    transition: all 1s ease-in-out;
+    z-index: 1000;
+    &.sticky {
+        border-bottom: 1px solid #cdcdcd;
+    }
+    &:after {
+        content: "";
+        clear: both;
+    }
+    #logo-box {
+        display: inline-block;
+        float: left;
+        width: 300px;
+        padding: 22.5px;
+    }
+    #link-box {
+        display: inline-block;
+        float: left;
+        padding: 22.5px;
+    }
+    #login-box {
+        display: inline-block;
+        float: right;
+        padding: 22.5px 40px;
+        height: 100%;
+        transition: all .2s ease-in-out;
+        &:hover {
+            background: white;
+        }
+    }
+}
