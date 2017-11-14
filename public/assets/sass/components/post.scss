@@ -97,6 +97,9 @@
             bottom: 5px;
             cursor: pointer;
             margin-bottom: 2px;
+            &:hover{
+            	color: #cdcdcd;
+            }
         }
         .score {
             position: absolute;
