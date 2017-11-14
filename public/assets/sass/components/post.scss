@@ -1,10 +1,22 @@
+.postb-container {
+	.postb-text{
+		textarea{
+			width: 75%;
+			height: 150px;
+			@media screen and (max-width: 520px){
+				width: 100%;
+			}
+		}
+	}
+}
+
 .comment-container {
     padding: 10px;
     margin: 20px 5px;
     min-height: 145px;
     position: relative;
     border-radius: 2px;
-                box-shadow: 0 1px 8px 0 rgba(0, 0, 0, .23), 0 3px 4px 0 rgba(0, 0, 0, .2), 0 3px 3px -2px rgba(0, 0, 0, .1);
+    box-shadow: 0 1px 8px 0 rgba(0, 0, 0, .23), 0 3px 4px 0 rgba(0, 0, 0, .2), 0 3px 3px -2px rgba(0, 0, 0, .1);
     .vote-container {
         position: absolute;
         width: 5%;
@@ -23,10 +35,10 @@
             cursor: pointer;
             transition: all .2s ease-in-out;
             &:hover {
-            	transform: translateY(-2px);
+                transform: translateY(-2px);
                 border-bottom: 17px solid #cdcdcd;
-                .up-score{
-                	transform: translateY(0px);
+                .up-score {
+                    transform: translateY(0px);
                 }
             }
             .up-score {
@@ -50,10 +62,10 @@
             margin: 0px auto;
             transition: all .2s ease-in-out;
             &:hover {
-            	transform: translateY(2px);
+                transform: translateY(2px);
                 border-top: 17px solid #cdcdcd;
-                .down-score{
-                	transform: translateY(0px);
+                .down-score {
+                    transform: translateY(0px);
                 }
             }
             .down-score {
@@ -88,8 +100,8 @@
             clear: both;
         }
         .comment {
-        	padding: 10px 0px;
-        	margin: 10px 0px;
+            padding: 10px 0px;
+            margin: 10px 0px;
         }
         .c-reply {
             position: absolute;
@@ -97,8 +109,8 @@
             bottom: 5px;
             cursor: pointer;
             margin-bottom: 2px;
-            &:hover{
-            	color: #cdcdcd;
+            &:hover {
+                color: #cdcdcd;
             }
         }
         .score {
