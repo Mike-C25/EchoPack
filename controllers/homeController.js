@@ -10,6 +10,9 @@ router.get("/userpage", function(req,res){
 	res.render("userpage");
 })
 
+router.get("/forumcreate", function(req,res){ 
+  res.render("forumcreate")
+})
 
 // /box/:forum name
 router.get("/box/:fn?", function(req,res){
