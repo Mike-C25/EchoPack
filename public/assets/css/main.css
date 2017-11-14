@@ -393,35 +393,52 @@ template {
 
 .header {
   position: fixed;
-  height: 65px;
   width: 100%;
   top: 0;
-  background: #39A0ED;
+  background: black;
   font-family: 'Open Sans', sans-serif;
   font-weight: 700;
   transition: all 1s ease-in-out;
-  z-index: 1000; }
-  .header.sticky {
-    border-bottom: 1px solid #cdcdcd; }
+  z-index: 1000;
+  color: white;
+  transition: all .2s ease-in-out; }
+  .header.sticker {
+    border-bottom: 1px solid white;
+    background: black; }
   .header:after {
     content: "";
-    clear: both; }
+    clear: both;
+    display: block; }
   .header #logo-box {
     display: inline-block;
     float: left;
     width: 300px;
-    padding: 22.5px; }
+    width: 75px;
+    height: 50px;
+    margin: 25px;
+    background: url("../images/echopack-logo.png");
+    background-repeat: no-repeat;
+    background-size: contain;
+    color: white;
+    transition: all .2s ease-in-out; }
+    .header #logo-box:hover {
+      transform: scale(1.1); }
   .header #link-box {
     display: inline-block;
     float: left;
-    padding: 22.5px; }
+    padding: 22.5px;
+    margin: 20px; }
   .header #login-box {
     display: inline-block;
     float: right;
-    padding: 22.5px 40px;
+    padding: 19.5px 40px;
     height: 100%;
-    transition: all .2s ease-in-out; }
+    transition: all .2s ease-in-out;
+    border: 3px solid transparent;
+    color: white;
+    margin: 20px; }
     .header #login-box:hover {
+      color: black;
       background: white; }
 
 .forum-box-card {
@@ -674,7 +691,7 @@ body a {
 .container {
   width: 100%;
   height: 100%;
-  margin: 75px 30px 0px 30px;
+  margin: 100px 30px 0px 30px;
   font-family: 'Catamaran', sans-serif; }
   @media screen and (max-width: 920px) {
     .container {
@@ -684,7 +701,7 @@ body a {
     clear: both;
     display: block; }
   .container .row .l-col {
-    width: 70%;
+    width: 75%;
     height: 100vh;
     float: left; }
     .container .row .l-col .forum-box-card {
@@ -711,9 +728,11 @@ body a {
       clear: both;
       display: block; }
   .container .row .r-col {
-    width: 25%;
+    width: 20%;
     height: 100vh;
-    float: right; }
+    float: right;
+    padding: 0px 60px;
+    border-left: 1px solid #cdcdcd; }
     .container .row .r-col:after {
       content: "";
       clear: both;

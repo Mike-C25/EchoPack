@@ -1,7 +1,7 @@
 $(document).ready(function() {
     const clockModule = $('#watch-time');
     const tempDate = $('.date').html(moment().format('MMMM Do YYYY'));
-    const tempTime =  $('.time').html(moment().format('H:mm'));
+    const tempTime = $('.time').html(moment().format('H:mm'));
 
     function update() {
         $('.time').html(moment().format('H:mm'));
@@ -15,5 +15,11 @@ $(document).ready(function() {
 
     // $('.header').css('background', hexArray[randBg]);
 
-    
+    $(window).scroll(function() {
+        if ($(window).scrollTop() >= 200) {
+            $('.header').addClass('sticker');
+        } else {
+            $('.header').removeClass('sticker');
+        }
+    });
 });
