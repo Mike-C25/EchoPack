@@ -26,6 +26,7 @@ module.exports = function(app) {
       // We can "catch" the error to prevent it from being "thrown", which could crash our node app
       res.json(err);
   });
+  });
 
 
 // Get route for retrieving a single post
@@ -45,7 +46,10 @@ module.exports = function(app) {
 
   // POST route for saving a new post
   app.post("/api/posts", function(req, res) {
-    db.Post.create(req.body).then(function(dbPost) {
+    db.Post.create({
+      title: req.body.title,
+      content: req.body.content
+    }).then(function(dbPost) {
       res.json(dbPost);
     });
   });
@@ -63,8 +67,10 @@ module.exports = function(app) {
 
   // PUT route for updating posts
   app.put("/api/posts", function(req, res) {
-    db.Post.update(
-      req.body,
+    db.Post.update({
+      title: req.body.title,
+      content: req.body.content
+    },
       {
         where: {
           id: req.body.id
@@ -77,4 +83,6 @@ module.exports = function(app) {
       // We can "catch" the error to prevent it from being "thrown", which could crash our node app
       res.json(err);
   });
+  });
+
 };

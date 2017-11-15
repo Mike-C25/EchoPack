@@ -18,6 +18,7 @@ module.exports = function(app) {
         // We have access to the Boxes as an argument inside of the callback function
         res.json(dbBox);
       });
+
     }
 
     else{
@@ -33,7 +34,7 @@ module.exports = function(app) {
   });
 
   // POST route for saving a new forum
-  app.post("/api/newBox", function(req, res) {
+  app.post("/api/Box", function(req, res) {
     
     console.log("Box Data:");
     console.log(req.body);
@@ -54,7 +55,10 @@ module.exports = function(app) {
       // Whenever a validation or flag fails, an error is thrown
       // We can "catch" the error to prevent it from being "thrown", which could crash our node app
       res.json(err);
+    });
   });
+
+
 
  // DELETE route for deleting box. We can get the id of the box to be deleted from
   // req.params.id
@@ -88,6 +92,8 @@ module.exports = function(app) {
       // Whenever a validation or flag fails, an error is thrown
       // We can "catch" the error to prevent it from being "thrown", which could crash our node app
       res.json(err);
+    });
   });
+
 
 };
