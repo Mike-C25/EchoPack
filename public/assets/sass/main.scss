@@ -6,7 +6,6 @@
 @import './components/create';
 @import './components/post';
 @import './components/comment';
-@import './components/postblock';
 @import url('https://fonts.googleapis.com/css?family=Catamaran|Open+Sans|Sarala');
 
 ///POTENTIAL FONTS
@@ -90,7 +89,7 @@ body {
             height: 100vh;
             float: right;
             padding: 0px 30px;
-            border-left: 1px solid #cdcdcd;
+            margin-right: 30px;
             @media screen and (max-width: 920px) {
                 padding: 0px 15px;
             }

@@ -1,3 +1,16 @@
+.infobox {
+    width: 100%;
+    padding: 40px;
+    margin: 20px 0px;
+    border-bottom: 1px solid #cdcdcd;
+    h1{
+         display: inline-block;
+    }
+    h4{
+        display: inline-block;
+    }
+}
+
 .forum-box-card {
     position: relative;
     padding: 5px;
@@ -73,10 +86,10 @@
             content: '';
             clear: both;
         }
-        .comment{
-        	position: absolute;
-        	bottom: 0px;
-        	right: 2%;
+        .comment {
+            position: absolute;
+            bottom: 0px;
+            right: 2%;
         }
     }
     &:after {
