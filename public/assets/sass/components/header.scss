@@ -52,8 +52,24 @@
         margin: 20px;
         &:hover {
             color: black;
-            background: white; // border: 3px solid white;
+            background: white; 
+            // border: 3px solid white;
             // border-right: 3px solid transparent;
         }
     }
+    #create-box {
+        display: inline-block;
+        float: right;
+        padding: 19.5px 40px;
+        height: 100%;
+        transition: all .2s ease-in-out;
+        border: 3px solid transparent;
+        background:black;
+        color: white;
+        margin: 20px;
+        &:hover {
+            color: black;
+            background: white;
+        }
+    }                      
 }

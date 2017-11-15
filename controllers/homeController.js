@@ -10,7 +10,7 @@ router.get("/userpage", function(req,res){
 	res.render("userpage");
 })
 
-router.get("/forumcreate", function(req,res){ 
+router.get("/create", function(req,res){ 
   res.render("forumcreate")
 })
 

@@ -3,6 +3,7 @@
 @import './components/header';
 @import './components/forum';
 @import './components/user';
+@import './components/create';
 @import './components/post';
 @import url('https://fonts.googleapis.com/css?family=Catamaran|Open+Sans|Sarala');
 
@@ -102,6 +103,7 @@ body {
                 width: 100%;
                 height: 200px;
             }
+           
         }
     }
-}
+}    
