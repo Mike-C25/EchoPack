@@ -1,28 +1,47 @@
 // Grabbing our models
 
-var db = require("../models");
+var db = require("../models"); // May need to specify .js file
 
 // Routes
 // =============================================================
 module.exports = function(app) {
 
-// GET route for getting all of the forums
-  app.get("/api/Box", function(req, res) {
-    // findAll returns all entries for a table when used with no options
-    db.EchoPack.findAll({}).then(function(dbBox) {
-      // We have access to the forums as an argument inside of the callback function
-      res.json(dbBox);
-    });
+// GET route for getting all of the forums(boxes) or specific one
+  app.get("/api/:Box?", function(req, res) {
+    if (req.params.Box){
+      // findAll returns all entries for a table when used with no options
+      db.Box.findOne({
+        where: {
+          title: req.params.Box
+        }
+      }).then(function(dbBox) {
+        // We have access to the Boxes as an argument inside of the callback function
+        res.json(dbBox);
+      });
+    }
+
+    else{
+      // findAll returns all entries for a table when used with no options
+      db.Box.findAll({
+        // limit: 3,
+        // order: [[sequelize.col('score'), 'DESC']]
+      }).then(function(dbBox) {
+        // We have access to the forums as an argument inside of the callback function
+        res.json(dbBox);
+      });
+    }
   });
 
   // POST route for saving a new forum
-  app.post("/api/Box", function(req, res) {
+  app.post("/api/newBox", function(req, res) {
+    
+    console.log("Box Data:");
     console.log(req.body);
     // create takes an argument of an object describing the item we want to
     // insert into our table. In this case we just we pass in an object with a text
     // and complete property (req.body)
-    db.EchoPack.create({
-      authorUserId: "",
+    db.Box.create({
+      authorUserId: "", // ???
       title: req.body.title,
       description: req.body.description
       // text: req.body.text,
@@ -30,14 +49,18 @@ module.exports = function(app) {
     }).then(function(dbBox) {
       // We have access to the new todo as an argument inside of the callback function
       res.json(dbBox);
-    });
+    })
+    .catch(function(err) {
+      // Whenever a validation or flag fails, an error is thrown
+      // We can "catch" the error to prevent it from being "thrown", which could crash our node app
+      res.json(err);
   });
 
  // DELETE route for deleting box. We can get the id of the box to be deleted from
   // req.params.id
   app.delete("/api/Box/:id", function(req, res) {
     // We just have to specify which box we want to destroy with "where"
-    db.EchoPack.destroy({
+    db.Box.destroy({
       where: {
         id: req.params.id
       }
@@ -60,7 +83,11 @@ module.exports = function(app) {
       }
     }).then(function(dbBox) {
       res.json(dbBox);
-    });
+    })
+    .catch(function(err) {
+      // Whenever a validation or flag fails, an error is thrown
+      // We can "catch" the error to prevent it from being "thrown", which could crash our node app
+      res.json(err);
   });
 
 };
