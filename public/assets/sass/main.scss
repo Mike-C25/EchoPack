@@ -42,6 +42,7 @@ body {
     font-family: 'Catamaran', sans-serif;
     @media screen and (max-width: 920px) {
         margin: 0px 15px;
+        margin-top: 125px;
     }
     &:after {
         content: "";
