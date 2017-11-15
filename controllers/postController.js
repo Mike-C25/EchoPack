@@ -7,64 +7,66 @@ var db = require("../models");
 module.exports = function(app) {
 
 // GET route for getting all of the posts
-  app.get("/api/Posts", function(req, res) {
-    // findAll returns all posts for Box ID
-    db.EchoPack.findAll({
-      where: {
-        BoxId: req.params.id
-      }
-    }).then(function(dbPosts) {
-      // We have access to the posts as an argument inside of the callback function
+  app.get("/api/posts", function(req, res) {
+    var query = {};
+    if (req.query.box_id) {
+      query.BoxId = req.query.box_id;
+    }
+    // Here we add an "include" property to our options in our findAll query
+    // We set the value to an array of the models we want to include in a left outer join
+    // In this case, just db.Box
+    db.Post.findAll({
+      where: query,
+      include: [db.Box]
+    }).then(function(dbPost) {
       res.json(dbPost);
     });
   });
 
-//   // POST route for saving a new post
-//   app.post("/api/Post", function(req, res) {
-//     console.log(req.body);
-//     // create takes an argument of an object describing the item we want to
-//     // insert into our table. In this case we just we pass in an object with a text
-//     // and complete property (req.body)
-//     db.EchoPack.create({
-//       authorUserId: "",
-//       title: req.body.title,
-//       description: req.body.description
-//       // text: req.body.text,
-//       // complete: req.body.complete
-//     }).then(function(dbBox) {
-//       // We have access to the new todo as an argument inside of the callback function
-//       res.json(dbBox);
-//     });
-//   });
 
-//  // DELETE route for deleting box. We can get the id of the box to be deleted from
-//   // req.params.id
-//   app.delete("/api/Box/:id", function(req, res) {
-//     // We just have to specify which box we want to destroy with "where"
-//     db.EchoPack.destroy({
-//       where: {
-//         id: req.params.id
-//       }
-//     }).then(function(dbBox) {
-//       res.json(dbBox);
-//     });
+// Get route for retrieving a single post
+  app.get("/api/posts/:id", function(req, res) {
+    // Here we add an "include" property to our options in our findOne query
+    // We set the value to an array of the models we want to include in a left outer join
+    // In this case, just db.Box
+    db.Post.findOne({
+      where: {
+        id: req.params.id
+      },
+      include: [db.Box]
+    }).then(function(dbPost) {
+      res.json(dbPost);
+    });
+  });
 
-//   });
+  // POST route for saving a new post
+  app.post("/api/posts", function(req, res) {
+    db.Post.create(req.body).then(function(dbPost) {
+      res.json(dbPost);
+    });
+  });
 
-//   // PUT route for updating box. We can get the updated box data from req.body
-//   app.put("/api/Box", function(req, res) {
-//     // Update takes in an object describing the properties we want to update, and
-//     // we use where to describe which objects we want to update
-//     db.Box.update({
-//       title: req.body.title,
-//       description: req.body.description
-//     }, {
-//       where: {
-//         id: req.body.id
-//       }
-//     }).then(function(dbBox) {
-//       res.json(dbBox);
-//     });
-//   });
+  // DELETE route for deleting posts
+  app.delete("/api/posts/:id", function(req, res) {
+    db.Post.destroy({
+      where: {
+        id: req.params.id
+      }
+    }).then(function(dbPost) {
+      res.json(dbPost);
+    });
+  });
 
+  // PUT route for updating posts
+  app.put("/api/posts", function(req, res) {
+    db.Post.update(
+      req.body,
+      {
+        where: {
+          id: req.body.id
+        }
+      }).then(function(dbPost) {
+        res.json(dbPost);
+      });
+  });
 };

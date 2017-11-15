@@ -7,7 +7,11 @@ module.exports = function(sequelize, DataTypes) {
     },
     postId: DataTypes.INTEGER,
     replyToId: DataTypes.STRING,
-    content:  DataTypes.STRING,
+    content: {
+      type: DataTypes.TEXT,
+      allowNull: false,
+      len: [1]
+    },
     authorUserId:  DataTypes.STRING,
     score:  DataTypes.INTEGER,
     sentimentScore: DataTypes.INTEGER,
