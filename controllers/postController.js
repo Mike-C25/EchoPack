@@ -20,7 +20,11 @@ module.exports = function(app) {
       include: [db.Box]
     }).then(function(dbPost) {
       res.json(dbPost);
-    });
+    })
+    .catch(function(err) {
+      // Whenever a validation or flag fails, an error is thrown
+      // We can "catch" the error to prevent it from being "thrown", which could crash our node app
+      res.json(err);
   });
 
 
@@ -67,6 +71,10 @@ module.exports = function(app) {
         }
       }).then(function(dbPost) {
         res.json(dbPost);
-      });
+      })
+      .catch(function(err) {
+      // Whenever a validation or flag fails, an error is thrown
+      // We can "catch" the error to prevent it from being "thrown", which could crash our node app
+      res.json(err);
   });
 };
