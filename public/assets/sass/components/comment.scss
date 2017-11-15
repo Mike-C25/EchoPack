@@ -90,17 +90,54 @@
             padding: 10px 0px;
             margin: 10px 0px;
         }
-        .c-reply {
-            position: relative;
-            right: 5%;
-            float: right;
-            top: 1%;
-            cursor: pointer;
-            margin-bottom: 2px;
-            &:hover {
-                color: #cdcdcd;
+        .reply-section {
+            .c-reply {
+                position: relative;
+                right: 5%;
+                float: right;
+                top: 1%;
+                cursor: pointer;
+                margin-bottom: 2px;
+                &:hover {
+                    color: #cdcdcd;
+                }
+            }
+            .reply-pullout {
+                display: none;
+                margin: 10px 0px;
+                padding: 30px 0px;
+                float: left;
+                width: 65%;
+                &.toggle {
+                    display: block;
+                }
+                .replybox {
+                    height: 150px;
+                    width: 100%;
+                    display: block;
+                    margin: 5px 0px;
+                }
+                .replybox-submit {
+                    margin: 10px 0px;
+                    border: 1px solid #cdcdcd;
+                    -webkit-webkit-appeareance: none;
+                    -moz-webkit-appeareance: none;
+                    -ms-webkit-appeareance: none;
+                    -o-webkit-appeareance: none;
+                    webkit-appeareance: none;
+                    background: white;
+                    padding: 5px 10px;
+                    cursor: pointer;
+                    transition: all .333s ease;
+                    &:hover {
+                        color: white;
+                        background: black;
+                        border: 1px solid black;
+                    }
+                }
             }
         }
+
         .score {
             position: absolute;
             right: 5%;

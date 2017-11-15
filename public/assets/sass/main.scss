@@ -1,4 +1,5 @@
 @import './variable-mixins/color';
+@import './variable-mixins/fonts';
 @import './partials/normalize';
 @import './components/header';
 @import './components/forum';
@@ -67,7 +68,7 @@ body {
             }
             .box-card {
                 width: 95%;
-                height: 300px;
+                height: 225px;
                 padding: 20px;
                 margin: 0px auto;
                 margin-top: 20px;
