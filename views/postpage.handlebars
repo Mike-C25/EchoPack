@@ -1,10 +1,10 @@
 {{> global/header}}
 
 
-
 <div class="container">
 	<div class="row">
 	  <div class="l-col">
+	  	{{> post/post-block}}
 	  	 {{> post/comment}}
 	  	 {{> post/comment}}
 	  	 {{> post/comment}}
@@ -12,6 +12,11 @@
 	  </div>
 
 	  <div class="r-col">
+	  	{{!-- {{if login=true}}
+	  		{{> global/createfourm}}
+	  	{{else}}
+
+	  	{{/if}} --}}
 	    {{> global/user}}
 	    {{> global/timedate}}
 	    {{> global/sentiment}}
