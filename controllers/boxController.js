@@ -15,7 +15,7 @@ module.exports = function(app) {
           title: req.params.Box
         }
       }).then(function(dbBox) {
-        // We have access to the forums as an argument inside of the callback function
+        // We have access to the Boxes as an argument inside of the callback function
         res.json(dbBox);
       });
     }
