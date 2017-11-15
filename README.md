@@ -1,4 +1,4 @@
-# EchoPack
+# EchoPack(WIP)
 A forum that provides a way for people communicate to other though a simple and clean interface
 ___
 
