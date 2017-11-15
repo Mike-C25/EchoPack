@@ -20,6 +20,7 @@
         display: block;
     }
     #logo-box {
+        position: relative;
         display: inline-block;
         float: left;
         width: 300px;
@@ -30,9 +31,27 @@
         background-repeat: no-repeat;
         background-size: contain;
         color: white;
-        transition: all .2s ease-in-out;
+        transition: all .333s ease-in-out;  
         &:hover {
-            transform: scale(1.1);
+            transform: scale(1.05);
+            &:after{
+                left: 100%;
+                transition: all .4s ease-in-out .4s;
+                opacity: 1;
+                z-index: -1;
+            }
+        }
+        &:after{
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            left: 0%;
+            content: "EchoBox";
+            display: block;
+            color: white;
+            opacity: 0;
+            transition: all .5s ease-in-out .25s;
+            z-index: -1;
         }
     }
     #link-box {
@@ -42,6 +61,7 @@
         margin: 20px;
     }
     #login-box {
+        position: relative;
         display: inline-block;
         float: right;
         padding: 19.5px 40px;
@@ -52,9 +72,38 @@
         margin: 20px;
         &:hover {
             color: black;
-            background: white; 
-            // border: 3px solid white;
-            // border-right: 3px solid transparent;
+            background: white;
+            &:before {
+                -webkit-transform: scale(1);
+            }
+            &:after {
+                -webkit-transform: scale(1);
+            }
+        }
+        &:before,
+        &:after {
+            width: 100%;
+            height: 100%;
+            z-index: 3;
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            box-sizing: border-box;
+            -webkit-transform: scale(0);
+            transition: 0.5s;
+        }
+        &:before {
+            border-bottom: 3px solid black;
+            border-left: 3px solid black;
+            -webkit-transform-origin: 0 100%;
+        }
+
+
+        &:after {
+            border-top: 3px solid black;
+            border-right: 3px solid black;
+            -webkit-transform-origin: 100% 0%;
         }
     }
     #create-box {
@@ -64,12 +113,12 @@
         height: 100%;
         transition: all .2s ease-in-out;
         border: 3px solid transparent;
-        background:black;
+        background: black;
         color: white;
         margin: 20px;
         &:hover {
             color: black;
             background: white;
         }
-    }                      
+    }
 }
