@@ -10,12 +10,12 @@ module.exports = function(sequelize, DataTypes) {
       type: DataTypes.STRING,
       allowNull: false,
       validate: {
-        len: [1]
+        len: [1, 140]
       },
     description: {
       type: DataTypes.TEXT,
       allowNull: false,
-      len: [1]
+      len: [1, 500]
     },
     sentimentScore: DataTypes.INTEGER,
     Date: DataTypes.DATE
