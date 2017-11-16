@@ -44,8 +44,8 @@ app.use('/public', express.static(path.join(__dirname, 'public')));
 app.use(cookieParser());
 
 //Use Controllers
-// app.use('', home);
-home(app);
+app.use('/', home);
+// home(app);
 box(app);
 post(app);
 user(app);
