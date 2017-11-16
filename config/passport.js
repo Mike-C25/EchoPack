@@ -5,9 +5,11 @@ var db = require("../models");
 
 // Telling passport we want to use a Local Strategy. In other words, we want login with a username/email and password
 passport.use(new LocalStrategy(
-
-  function(username, password, done) {
-     db.User.findOne({ where: {userName: username} }, function(err, user) {
+   function(username, password, done) {
+     db.User.findOne({ 
+        where: {userName: username} 
+     }, function(err, user) {
+          console.log("did i even make it here.") // nope
           if (err) { return done(err); }
           if (!user) {
             return done(null, false, { message: 'Incorrect username.' });
