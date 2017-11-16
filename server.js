@@ -7,10 +7,13 @@
 const express = require('express');
 const bodyParser = require('body-parser');
 const cookieParser = require('cookie-parser');
+var session = require("express-session");
 // const sassMiddleware = require('node-sass-middleware')
 const path = require('path');
 const exphbs = require('express-handlebars');
+const passport = require('./config/passport'); // our local passport strategy
 const app = express();
+
 const home = require('./controllers/homeController.js');
 const box = require('./controllers/boxController.js');
 const post = require('./controllers/postController.js');
@@ -41,8 +44,12 @@ app.set('view engine', 'handlebars');
 // Note: you must place sass-middleware *before* `express.static` or else it will 
 // not work. 
 app.use('/public', express.static(path.join(__dirname, 'public')));
+// Vin added this... not sure if we need ?
+app.use(bodyParser.urlencoded({ extended: false }));
+app.use(bodyParser.json());
 app.use(cookieParser());
-
+app.use(passport.initialize());
+app.use(passport.session());
 //Use Controllers
 app.use('/', home);
 // home(app);
@@ -61,6 +68,6 @@ app.listen(PORT, server_host, function() {
 */
 db.sequelize.sync({force:false}).then(function(){
 	app.listen(PORT, function(){
-		console.log(`Listening on PORT: ${PORT}`);
+		console.log("==> 🌎  Listening on port %s. Visit http://localhost:%s/ in your browser.", PORT, PORT);
 	})
 })

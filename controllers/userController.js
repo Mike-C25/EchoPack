@@ -1,39 +1,52 @@
 // Grabbing our models
 
 var db = require("../models"); // May need to specify .js file
+var passport = require("../config/passport"); // configured passport 
 
 // Routes
 // =============================================================
 
 module.exports = function(app) {
 
+
+// The following is the post route for authentication. 
+
+  app.post('/api/login', 
+    passport.authenticate('local'), function(req,res) {
+       res.json("/");
+    });
+
+ 
+//##################################################################################################
 // GET route for getting all of the users or specific one
-  app.get("/api/:User?", function(req, res) {
-    if (req.params.User){
-      // findAll returns all entries for a table when used with no options
-      db.User.findOne({
-        where: {
-          userName: req.params.userName,
-          password: req.params.pass
-        }
-      }).then(function(dbUser) {
-        // We have access to the Useres as an argument inside of the callback function
-        res.json(dbUser);
-      });
+// ############### COMMENTING OUT FOR NOW AS PASSPORT AS REPLACED THE NEED FOR THIS BELOW ########
+  // app.get("/api/:User?", function(req, res) {
+  //   if (req.params.User){
+  //     // findAll returns all entries for a table when used with no options
+  //     db.User.findOne({
+  //       where: {
+  //         userName: req.params.userName,
+  //         password: req.params.pass
+  //       }
+  //     }).then(function(dbUser) {
+  //       // We have access to the Useres as an argument inside of the callback function
+  //       res.json(dbUser);
+  //     });
 
-    }
+  //   }
 
-    else{
-      // findAll returns all entries for a table when used with no options
-      db.User.findAll({
-        // limit: 3,
-        // order: [[sequelize.col('score'), 'DESC']]
-      }).then(function(dbUser) {
-        // We have access to the forums as an argument inside of the callback function
-        res.json(dbUser);
-      });
-    }
-  });
+  //   else{
+  //     // findAll returns all entries for a table when used with no options
+  //     db.User.findAll({
+  //       // limit: 3,
+  //       // order: [[sequelize.col('score'), 'DESC']]
+  //     }).then(function(dbUser) {
+  //       // We have access to the forums as an argument inside of the callback function
+  //       res.json(dbUser);
+  //     });
+  //   }
+  // });
+// ###############################################################################################
 
 //
 // POST route for saving a new User
