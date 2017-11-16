@@ -21,8 +21,8 @@ $(document).ready(function() {
 	  $('#loginSubmit').on('click',function(e) {
 
           var userVerify = {
-	  	      userName: $('#login-email').val().trim();
-	  	      pass:     $('#login-pass').val().trim();
+	  	      userName: $('#login-email').val().trim(),
+	  	      pass:     $('#login-pass').val().trim(),
           }
 
 	  	  $.ajax('api/User', {
@@ -40,16 +40,16 @@ $(document).ready(function() {
 	    $('#newSubmit').on('click',function(e) {
 
           var userCreate = {
-	  	      firstName: $('#new-first').val().trim();
-	  	      lastName:  $('#new-last').val().trim();
-	  	      userName:   $('#new-user').val().trim();
-	  	      email:  $('#new-email').val().trim();
-	  	      password:  $('#new-pass').val().trim();
+	  	      firstName: $('#new-first').val().trim(),
+	  	      lastName:  $('#new-last').val().trim(),
+	  	      userName:   $('#new-user').val().trim(),
+	  	      email:  $('#new-email').val().trim(),
+	  	      password:  $('#new-pass').val().trim()
           }
 
 	  	  $.ajax('api/User', {
 	  	  	type: "POST",
-            data: userCreate
+            data: userCreate,
 	  	    success: function() {
 	  	    	alert("You are now a member of EchoPack")
 	  	    },
