@@ -7,7 +7,7 @@
 const express = require('express');
 const bodyParser = require('body-parser');
 const cookieParser = require('cookie-parser');
-const sassMiddleware = require('node-sass-middleware')
+// const sassMiddleware = require('node-sass-middleware')
 const path = require('path');
 const exphbs = require('express-handlebars');
 const app = express();
