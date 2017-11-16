@@ -8,7 +8,7 @@ var db = require("../models"); // May need to specify .js file
 module.exports = function(app) {
 
 // GET route for getting all of the users or specific one
-  app.get("/api/:User?", function(req, res) {
+  app.get("/api/User", function(req, res) {
     if (req.params.User){
       // findAll returns all entries for a table when used with no options
       db.User.findOne({

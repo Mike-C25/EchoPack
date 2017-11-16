@@ -25,10 +25,13 @@ $(document).ready(function() {
             pass: $('#login-pass').val().trim(),
         }
 
+
+
         $.ajax('api/User', {
             type: "GET",
             data: userVerify,
             success: function(data) {
+
                 alert("You are now logged in")
             },
             error: function(xhr, status, error) {
