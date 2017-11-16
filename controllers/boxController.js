@@ -1,18 +1,19 @@
 // Grabbing our models
-var express = require("express");
+
 var db = require("../models"); // May need to specify .js file
-var router = express.Router();
 
-router.get('/api/Box', function(req, res){
-  res.JSON({});
-});
-// Routes
-// =============================================================
-// module.exports = function(app) {
+// // Routes
+// // =============================================================
 
-// // GET route for getting all of the forums(boxes) or specific one
-//   router.get("/api/:Box?", function(req, res) {
-//     if (req.params.Box){
+ // router.get("/api/Box", function(req, res) {
+ //    db.Box.findAll({})
+ //    .then(function(dbBox) {
+ //      res.json(dbBox);
+ //    });
+ //  });
+
+// router.get("/api/Box"), function(req,res) {
+//   if (req.params.Box){
 //       // findAll returns all entries for a table when used with no options
 //       db.Box.findOne({
 //         where: {
@@ -35,69 +36,105 @@ router.get('/api/Box', function(req, res){
 //         res.json(dbBox);
 //       });
 //     }
-//   });
-
-//   // POST route for saving a new forum
-//   app.post("/api/Box", function(req, res) {
-    
-//     console.log("Box Data:");
-//     console.log(req.body);
-//     // create takes an argument of an object describing the item we want to
-//     // insert into our table. In this case we just we pass in an object with a text
-//     // and complete property (req.body)
-//     db.Box.create({
-//       authorUserId: "", // ???
-//       title: req.body.title,
-//       description: req.body.description
-//       // text: req.body.text,
-//       // complete: req.body.complete
-//     }).then(function(dbBox) {
-//       // We have access to the new todo as an argument inside of the callback function
-//       res.json(dbBox);
-//     })
-//     .catch(function(err) {
-//       // Whenever a validation or flag fails, an error is thrown
-//       // We can "catch" the error to prevent it from being "thrown", which could crash our node app
-//       res.json(err);
-//     });
-//   });
-
-
-
-//  // DELETE route for deleting box. We can get the id of the box to be deleted from
-//   // req.params.id
-//   app.delete("/api/Box/:id", function(req, res) {
-//     // We just have to specify which box we want to destroy with "where"
-//     db.Box.destroy({
-//       where: {
-//         id: req.params.id
-//       }
-//     }).then(function(dbBox) {
-//       res.json(dbBox);
-//     });
-
-//   });
-
-//   // PUT route for updating box. We can get the updated box data from req.body
-//   app.put("/api/Box", function(req, res) {
-//     // Update takes in an object describing the properties we want to update, and
-//     // we use where to describe which objects we want to update
-//     db.Box.update({
-//       title: req.body.title,
-//       description: req.body.description
-//     }, {
-//       where: {
-//         id: req.body.id
-//       }
-//     }).then(function(dbBox) {
-//       res.json(dbBox);
-//     })
-//     .catch(function(err) {
-//       // Whenever a validation or flag fails, an error is thrown
-//       // We can "catch" the error to prevent it from being "thrown", which could crash our node app
-//       res.json(err);
-//     });
-//   });
-
-
 // };
+
+module.exports = function(app) {
+
+  // app.get("/api/Box/", function(req, res) {
+  //   db.Box.findAll({})
+  //   .then(function(dbBox) {
+  //     res.json(dbBox);
+  //   });
+  // });
+// GET route for getting all of the forums(boxes) or specific one
+  app.get("/api/:Box?", function(req, res) {
+    if (req.params.Box){
+      // findAll returns all entries for a table when used with no options
+      db.Box.findOne({
+        where: {
+          title: req.params.Box
+        }
+      }).then(function(dbBox) {
+        // We have access to the Boxes as an argument inside of the callback function
+        res.json(dbBox);
+      });
+
+
+    }
+
+    else{
+      // findAll returns all entries for a table when used with no options
+      db.Box.findAll({
+        // limit: 3,
+        // order: [[sequelize.col('score'), 'DESC']]
+      }).then(function(dbBox) {
+        // We have access to the forums as an argument inside of the callback function
+        res.json(dbBox);
+      });
+    }
+  });
+
+  // POST route for saving a new forum
+  app.post("/api/Box", function(req, res) {
+    
+    console.log("Box Data:");
+    console.log(req.body);
+    // create takes an argument of an object describing the item we want to
+    // insert into our table. In this case we just we pass in an object with a text
+    // and complete property (req.body)
+    db.Box.create({
+      authorUserId: "", // ???
+      title: req.body.title,
+      description: req.body.description
+      // text: req.body.text,
+      // complete: req.body.complete
+    }).then(function(dbBox) {
+      // We have access to the new todo as an argument inside of the callback function
+      res.json(dbBox);
+    })
+    .catch(function(err) {
+      // Whenever a validation or flag fails, an error is thrown
+      // We can "catch" the error to prevent it from being "thrown", which could crash our node app
+      res.json(err);
+    });
+  });
+
+
+
+ // DELETE route for deleting box. We can get the id of the box to be deleted from
+  // req.params.id
+  app.delete("/api/Box/:id", function(req, res) {
+    // We just have to specify which box we want to destroy with "where"
+    db.Box.destroy({
+      where: {
+        id: req.params.id
+      }
+    }).then(function(dbBox) {
+      res.json(dbBox);
+    });
+
+  });
+
+  // PUT route for updating box. We can get the updated box data from req.body
+  app.put("/api/Box", function(req, res) {
+    // Update takes in an object describing the properties we want to update, and
+    // we use where to describe which objects we want to update
+    db.Box.update({
+      title: req.body.title,
+      description: req.body.description
+    }, {
+      where: {
+        id: req.body.id
+      }
+    }).then(function(dbBox) {
+      res.json(dbBox);
+    })
+    .catch(function(err) {
+      // Whenever a validation or flag fails, an error is thrown
+      // We can "catch" the error to prevent it from being "thrown", which could crash our node app
+      res.json(err);
+    });
+  });
+
+
+};
