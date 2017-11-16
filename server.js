@@ -7,7 +7,7 @@
 const express = require('express');
 const bodyParser = require('body-parser');
 const cookieParser = require('cookie-parser');
-const sassMiddleware = require('node-sass-middleware')
+// const sassMiddleware = require('node-sass-middleware')
 const path = require('path');
 const exphbs = require('express-handlebars');
 const app = express();
@@ -44,7 +44,8 @@ app.use('/public', express.static(path.join(__dirname, 'public')));
 app.use(cookieParser());
 
 //Use Controllers
-// app.use('', home);
+app.use('/', home);
+// home(app);
 box(app);
 post(app);
 user(app);
