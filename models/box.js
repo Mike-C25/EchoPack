@@ -12,6 +12,7 @@ module.exports = function(sequelize, DataTypes) {
       validate: {
         len: [1, 140]
       },
+    },
     description: {
       type: DataTypes.TEXT,
       allowNull: false,
@@ -19,10 +20,13 @@ module.exports = function(sequelize, DataTypes) {
     },
     sentimentScore: DataTypes.INTEGER,
     Date: DataTypes.DATE
-  },
-  {
-   freezeTableName: true // needed?
-  });
+  }
+  // {
+  //  freezeTableName: true // needed?
+  // },
+  );
+
+
 
   Box.associate = function(models) {
     // We're saying that a Box should belong to an User

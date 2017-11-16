@@ -5,7 +5,7 @@ module.exports = function(sequelize, DataTypes) {
       primaryKey: true,
       autoIncrement: true
     },
-    postId: DataTypes.INTEGER,
+    // postId: DataTypes.INTEGER,
     replyToId: DataTypes.STRING,
     content: {
       type: DataTypes.TEXT,
