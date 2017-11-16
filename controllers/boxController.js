@@ -59,6 +59,7 @@ module.exports = function(app) {
         res.json(dbBox);
       });
 
+
     }
 
     else{
