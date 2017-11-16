@@ -23,7 +23,7 @@ $(document).ready(function(){
       console.log("Posts", data);
       posts = data;
       if (!posts || !posts.length) {
-        displayEmpty(box);
+        console.log(box);
       }
       else {
         initializeRows();
