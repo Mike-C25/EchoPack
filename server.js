@@ -12,6 +12,11 @@ const path = require('path');
 const exphbs = require('express-handlebars');
 const app = express();
 const home = require('./controllers/homeController.js');
+const box = require('./controllers/boxController.js');
+const post = require('./controllers/postController.js');
+const user = require('./controllers/userController.js');
+//const comment
+
 const env = require('dotenv/config')
 const db = require("./models");
 
@@ -39,7 +44,11 @@ app.use('/public', express.static(path.join(__dirname, 'public')));
 app.use(cookieParser());
 
 //Use Controllers
-app.use('', home);
+// app.use('', home);
+box(app);
+post(app);
+user(app);
+//comment(app);
 
 
 /*
