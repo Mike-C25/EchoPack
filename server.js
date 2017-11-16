@@ -45,6 +45,7 @@ app.use(cookieParser());
 
 //Use Controllers
 // app.use('', home);
+home(app);
 box(app);
 post(app);
 user(app);
