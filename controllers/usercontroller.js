@@ -13,7 +13,8 @@ module.exports = function(app) {
       // findAll returns all entries for a table when used with no options
       db.User.findOne({
         where: {
-          userName: req.params.User
+          userName: req.params.userName,
+          password: req.params.pass
         }
       }).then(function(dbUser) {
         // We have access to the Useres as an argument inside of the callback function
