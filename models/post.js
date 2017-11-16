@@ -16,7 +16,7 @@ module.exports = function(sequelize, DataTypes) {
     content: {
       type: DataTypes.TEXT,
       allowNull: false,
-      len: [1]
+      len: [1, 1000]
     },
     authorUserId:  DataTypes.STRING, // Needed? Redundant? 
     score:  DataTypes.INTEGER,
@@ -44,5 +44,12 @@ Post.associate = function(models) {
     });
   };
 
+Post.associate = function(models) {
+      // Associating Posts with comments
+      // When an Post is deleted, also delete any associated comments
+      Post.hasMany(models.Comments, {
+        onDelete: "cascade"
+      });
+    };
   return Post;
 };
