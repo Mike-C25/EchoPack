@@ -1,64 +1,64 @@
 $(document).ready(function() {
-   $("#login").hide(); 
+    $("#login").hide();
 
-   
 
-	  $('.tab a').on('click', function (e) {
-	  
-		  e.preventDefault();
-		  
-		  $(this).parent().addClass('active');
-		  $(this).parent().siblings().removeClass('active');
-		  
-		  target = $(this).attr('href');
 
-		  $('.tab-content > div').not(target).hide();
-		  
-		  $(target).fadeIn(600);
-	  
-	  });
+    $('.tab a').on('click', function(e) {
 
-	  $('#loginSubmit').on('click',function(e) {
+        e.preventDefault();
 
-          var userVerify = {
-	  	      userName: $('#login-email').val().trim(),
-	  	      pass:     $('#login-pass').val().trim(),
-          }
+        $(this).parent().addClass('active');
+        $(this).parent().siblings().removeClass('active');
 
-	  	  $.ajax('api/User', {
-	  	  	type: "GET",
+        target = $(this).attr('href');
+
+        $('.tab-content > div').not(target).hide();
+
+        $(target).fadeIn(600);
+
+    });
+
+    $('#loginSubmit').on('click', function(e) {
+
+        var userVerify = {
+            userName: $('#login-email').val().trim(),
+            pass: $('#login-pass').val().trim(),
+        }
+
+        $.ajax('api/User', {
+            type: "GET",
             data: userVerify,
             success: function(data) {
-            	alert("You are now logged in")
+                alert("You are now logged in")
             },
-            error: function(xhr,status,error) {
-            	alert("Error,Try again")
+            error: function(xhr, status, error) {
+                alert("Error,Try again")
             }
-	  	  
-	  });
 
-	    $('#newSubmit').on('click',function(e) {
+        });
+    });
 
-          var userCreate = {
-	  	      firstName: $('#new-first').val().trim(),
-	  	      lastName:  $('#new-last').val().trim(),
-	  	      userName:   $('#new-user').val().trim(),
-	  	      email:  $('#new-email').val().trim(),
-	  	      password:  $('#new-pass').val().trim()
-          }
+    $('#newSubmit').on('click', function(e) {
 
-	  	  $.ajax('api/User', {
-	  	  	type: "POST",
+        var userCreate = {
+            firstName: $('#new-first').val().trim(),
+            lastName: $('#new-last').val().trim(),
+            userName: $('#new-user').val().trim(),
+            email: $('#new-email').val().trim(),
+            password: $('#new-pass').val().trim()
+        }
+
+        $.ajax('api/User', {
+            type: "POST",
             data: userCreate,
-	  	    success: function() {
-	  	    	alert("You are now a member of EchoPack")
-	  	    },
-	  	    error:function(xhr,status,error) {
-	  	    	console.log(status);
-	  	    	alert("unsuccessful");
-	  	    }
-	  	  	//check if row successfully added
-	  	  })
-	  })
+            success: function() {
+                alert("You are now a member of EchoPack")
+            },
+            error: function(xhr, status, error) {
+                console.log(status);
+                alert("unsuccessful");
+            }
+            //check if row successfully added
+        })
+    })
 });
-
