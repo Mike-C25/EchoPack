@@ -1,10 +1,11 @@
 $(document).ready(function() {
-   $("#reply-pullout").hide(); 
+
 });
 
-$('.c-reply').on('click', function (e) {
+$('.c-reply').on('click', function () {
   
-  e.preventDefault();
-  $("#reply-pullout").fadeIn(600);
+  // e.preventDefault();
+  // $("#reply-pullout").fadeIn(600);
+  $(this).next().toggleClass('toggle');
   
 });

@@ -17,23 +17,18 @@
 
             <div id="forum-form">
                   <h1> Create a Forum </h1>
-	              <form class = "" action="/" method="post">
+	              <form action="/api/Box" method="post">
 		         
 		            <div class="field-wrap">
-		              <label>
-		               Forum Title<span class="req">*</span>
-		              </label>
-		              <input type="text" required autocomplete="off" />
+		              <label>Forum Title<span class="req">*</span></label>
+		              <input name="forumT" id="forumT"required type="text" autocomplete="off" />
 		            </div>
 
 		            <div class="field-wrap">
-		              <label>
-		                Forum Description<span class="req">*</span>
-		              </label>
-		              <textarea type="text"required></textarea>
+		              <label>Forum Description<span class="req">*</span></label>
+		              <textarea name="forumD" id="forumD" type="text"></textarea>
 
 		            </div>
-		          	          
 		          <button id ="forumSubmit" type="submit" class="button button-block"/> Add Forum </button>
 		          </form>
             </div>   
@@ -41,32 +36,24 @@
             <div id="post-form">
 
                 <h1>Add a Post</h1>
-                <form action="/" method="post">
+                <form method="post">
 
                 	<div class="field-wrap">
-	                  <label>
-	                   Forum<span class="req">*</span>
-	                  </label>
-	                  <input type="email"required autocomplete="off"/>
+	                  <label>Forum<span class="req">*</span></label>
+	                  <input name="" class="postF" type="text"required autocomplete="off"/>
 	                </div>
           
 	                <div class="field-wrap">
-	                  <label>
-	                     Post Title<span class="req">*</span>
-	                  </label>
-	                  <input type="email"required autocomplete="off"/>
+	                  <label>Post Title<span class="req">*</span></label>
+	                  <input class="postT" type="text" autocomplete="off"/>
 	                </div>
 	          
 	                <div class="field-wrap">
-	                  <label>
-	                   Post Content<span class="req">*</span>
-	                  </label>
-	                  <textarea name="Post Content"></textarea>
-	                </div>
+	                  <label>Post Content<span class="req">*</span></label>
+	                  <textarea class="postC" name="Post Content"></textarea>
+	                </div>     
 	          
-	               
-	          
-	                <button id="postSubmit" class="button button-block"/>Add Post</button>
+	                <button id="postSubmit" type="submit" class="button button-block"/>Add Post</button>
           
                 </form>
 
