@@ -5,15 +5,17 @@ var db = require("../models"); // May need to specify .js file
 // // Routes
 // // =============================================================
 
- // router.get("/api/Box", function(req, res) {
- //    db.Box.findAll({})
- //    .then(function(dbBox) {
- //      res.json(dbBox);
- //    });
- //  });
+module.exports = function(app) {
 
-// router.get("/api/Box"), function(req,res) {
-//   if (req.params.Box){
+  app.get("/api/Box/", function(req, res) {
+    db.Box.findAll({})
+    .then(function(dbBox) {
+      res.json(dbBox);
+    });
+  });
+// // GET route for getting all of the forums(boxes) or specific one
+//   app.get("/api/:Box?", function(req, res) {
+//     if (req.params.Box){
 //       // findAll returns all entries for a table when used with no options
 //       db.Box.findOne({
 //         where: {
@@ -36,42 +38,7 @@ var db = require("../models"); // May need to specify .js file
 //         res.json(dbBox);
 //       });
 //     }
-// };
-
-module.exports = function(app) {
-
-  // app.get("/api/Box/", function(req, res) {
-  //   db.Box.findAll({})
-  //   .then(function(dbBox) {
-  //     res.json(dbBox);
-  //   });
-  // });
-// GET route for getting all of the forums(boxes) or specific one
-  app.get("/api/:Box?", function(req, res) {
-    if (req.params.Box){
-      // findAll returns all entries for a table when used with no options
-      db.Box.findOne({
-        where: {
-          title: req.params.Box
-        }
-      }).then(function(dbBox) {
-        // We have access to the Boxes as an argument inside of the callback function
-        res.json(dbBox);
-      });
-
-    }
-
-    else{
-      // findAll returns all entries for a table when used with no options
-      db.Box.findAll({
-        // limit: 3,
-        // order: [[sequelize.col('score'), 'DESC']]
-      }).then(function(dbBox) {
-        // We have access to the forums as an argument inside of the callback function
-        res.json(dbBox);
-      });
-    }
-  });
+//   });
 
   // POST route for saving a new forum
   app.post("/api/Box", function(req, res) {

@@ -36,15 +36,20 @@ module.exports = function(sequelize, DataTypes) {
         allowNull: false
       }
     });
+   // Associating Box with Posts
+    // When an Box is deleted, also delete any associated Posts
+    Box.hasMany(models.Post, {
+      onDelete: "cascade"
+    });
   };
 
-   Box.associate = function(models) {
-      // Associating Box with Posts
-      // When an Box is deleted, also delete any associated Posts
-      Box.hasMany(models.Post, {
-        onDelete: "cascade"
-      });
-    };
+   // Box.associate = function(models) {
+   //    // Associating Box with Posts
+   //    // When an Box is deleted, also delete any associated Posts
+   //    Box.hasMany(models.Post, {
+   //      onDelete: "cascade"
+   //    });
+   //  };
 
   return Box;
 };
