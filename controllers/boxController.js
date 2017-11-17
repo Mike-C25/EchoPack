@@ -7,8 +7,10 @@ var db = require("../models"); // May need to specify .js file
 
 module.exports = function(app) {
 
-  app.get("/api/Box/", function(req, res) {
-    db.Box.findAll({})
+  app.get("/api/box/:box", function(req, res) {
+    db.Box.findAll({
+    	where: req.params.box
+    })
     .then(function(dbBox) {
       res.json(dbBox);
     });
@@ -41,27 +43,28 @@ module.exports = function(app) {
 
 
   // POST route for saving a new forum
-  app.post("/api/Box", function(req, res) {
-    
+  app.post("/api/box/:title", function(req, res) {
+    console.log("created");
     console.log("Box Data:");
     console.log(req.body);
     // create takes an argument of an object describing the item we want to
     // insert into our table. In this case we just we pass in an object with a text
     // and complete property (req.body)
     db.Box.create({
-      authorUserId: "", // ???
-      title: req.body.title,
-      description: req.body.description
+      // authorUserId: "", // ???
+      title: req.body.forumTitle,
+      description: req.body.forumDescription
       // text: req.body.text,
       // complete: req.body.complete
     }).then(function(dbBox) {
       // We have access to the new todo as an argument inside of the callback function
-      res.json(dbBox);
+      console.log("success");
+      res.send(dbBox);
     })
     .catch(function(err) {
       // Whenever a validation or flag fails, an error is thrown
       // We can "catch" the error to prevent it from being "thrown", which could crash our node app
-      res.json(err);
+      res.send(err);
     });
   });
 

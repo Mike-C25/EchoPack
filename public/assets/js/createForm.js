@@ -1,9 +1,10 @@
 $(document).ready(function() {
+
+
     $("#post-form").hide();
-
-
-    $(window).on('click', "#forumSubmit", function(e) {
+    $('#forumSubmit').on('click', function(e) {
         e.preventDefault();
+        // console.log('clicked');
         let fTitle = $('#forumT').val();
         let fDesc = $('#forumD').val();
 
@@ -11,18 +12,19 @@ $(document).ready(function() {
             forumTitle: fTitle,
             forumDescription: fDesc
         }
-        console.log(forumInfo);
+        // console.log(forumInfo);
         // if (!forumInfo.forumTitle || !forumInfo.forumDescription) {
         //     alert("missing info")
         //     return;
         // }
 
-
-        $.ajax('/api/Box', { type: 'POST', data: forumInfo }).then(function() {
-                console.log("Forum Created");
-                // location.reload();
-            });
+        console.log('/api/box/' + fTitle);
+        $.ajax('/api/box/' + fTitle, { type: 'POST', data: forumInfo }).then(function() {
+            console.log("Forum Created");
+            // location.reload();
+        });
     });
+
 
     $(window).on('click', "#postSubmit", function(e) {
         e.preventDefault();
@@ -44,10 +46,10 @@ $(document).ready(function() {
 
 
 
-        $.ajax('/api/posts', { type: 'POST', data: postInfo }).then(function() {
-                console.log("Post Created");
-                // location.reload();
-            });
+        $.ajax('/api/' + pForum + '/' + pTitle, { type: 'POST', data: postInfo }).then(function() {
+            console.log("Post Created");
+            // location.reload();
+        });
     });
 });
 
