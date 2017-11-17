@@ -33,6 +33,7 @@ $(document).ready(function() {
 
         loginUser(userVerify.userName, userVerify.pass);
     
+
     });
 
     //does a post to api/User route and if successfull brings us back to the home page logged in.
