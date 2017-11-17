@@ -18,20 +18,26 @@ $(document).ready(function() {
     // $('.header').css('background', hexArray[randBg]);
 
 
-     // $.get("/api/topthree", function(data){
-     //    console.log("Boxes: " + JSON.stringify(data));
+    // $.get("/api/topthree", function(data){
+    //    console.log("Boxes: " + JSON.stringify(data));
 
 
-     // });
+    // });
 
+    $('.box-card').on('click', function() {
 
-     $.get("/api/usercount", function(data){
-        console.log("Users: " + JSON.stringify(data) +data.count);
+        let title = $(this).children()[0].innerHTML;
+
+        window.location.href = "/box/" + title;
+    })
+
+    $.get("/api/usercount", function(data) {
+        console.log("Users: " + JSON.stringify(data) + data.count);
 
         $('#users-count').text("Total Users:   " + data.count);
-        
 
-     });
+
+    });
 
     $(window).scroll(function() {
         if ($(window).scrollTop() >= 200) {
