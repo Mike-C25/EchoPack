@@ -1,7 +1,7 @@
 $(document).ready(function() {
+
+//THIS CODE FORMATS THE LOGIN/SIGNUP FORM AND RELATED TABS
     $("#login").hide();
-
-
 
     $('.tab a').on('click', function(e) {
 
@@ -18,27 +18,40 @@ $(document).ready(function() {
 
     });
 
-    $('#loginSubmit').on('click', function(e) {
+     // declare variables for two forms
+    const signupForm = $('.signup-form');
+    const loginForm  = $('.login-form');
+
+    // when user submits his login request
+    loginForm.on('submit', function(e) {
+        e.preventDefault();
 
         var userVerify = {
-            userName: $('#login-email').val().trim(),
+            userName: $('#login-user').val().trim(),
             pass: $('#login-pass').val().trim(),
         }
 
-        $.ajax('api/User', {
-            type: "GET",
-            data: userVerify,
-            success: function(data) {
-                alert("You are now logged in")
-            },
-            error: function(xhr, status, error) {
-                alert("Error,Try again")
-            }
+        loginUser(userVerify.userName, userVerify.pass);
+    
 
-        });
     });
 
-    $('#newSubmit').on('click', function(e) {
+    //does a post to api/User route and if successfull brings us back to the home page logged in.
+    function loginUser(username, password) {
+       $.post("/api/login", {
+          username: username,
+          password: password
+       }).then(function(data) {
+          window.location.replace(data);
+          // If there's an error, log the error
+       //}).catch(function(err) {  //#### erroring out here for some reason
+       //    console.log(err);
+       });
+    };
+
+  
+    signupForm.on('submit', function(e) {
+        e.preventDefault();
 
         var userCreate = {
             firstName: $('#new-first').val().trim(),
@@ -59,6 +72,6 @@ $(document).ready(function() {
                 alert("unsuccessful");
             }
             //check if row successfully added
-        })
-    })
+        });
+    });
 });

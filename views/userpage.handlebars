@@ -18,7 +18,7 @@
 
             <div id="signup">
                   <h1> Sign Up ! </h1>
-	              <form class = "" action="/" method="post">
+	              <form class = "signup-form" action="/api/User" method="post">
 		            <div class="field-wrap">
 		              <label>
 		                First Name<span class="req">*</span>
@@ -36,7 +36,7 @@
 		            <label>
 		             User-Name <span class="req">*</span>
 		            </label>
-		            <input id="new-user" type="email"required autocomplete="off"/>
+		            <input id="new-user" type="text"required autocomplete="off"/>
 		          </div>
 
 		          <div class="field-wrap">
@@ -53,7 +53,7 @@
 		            <input id="new-pass" type="password"required autocomplete="off"/>
 		          </div>
 		          
-		          <button id ="newSubmit" type="submit" class="button button-block"/>Sign Up </button>
+		          <button type="submit" class="button button-block"/>Sign Up </button>
 		          </form>
 
             </div>   
@@ -62,13 +62,13 @@
 
                 <h1>Welcome Back!</h1>
           
-                <form action="/" method="post">
+                <form class= "login-form" action="/api/login" method="post">
           
 	                <div class="field-wrap">
 	                  <label>
 	                      Username<span class="req">*</span>
 	                  </label>
-	                  <input id="login-email" type="email"required autocomplete="off"/>
+	                  <input id="login-user" type="text"required autocomplete="off"/>
 	                </div>
 	          
 	                <div class="field-wrap">
@@ -80,7 +80,7 @@
 	          
 	                <p class="forgot"><a href="#">Forgot Password?</a></p>
 	          
-	                <button id="loginSubmit" class="button button-block"/>Log In</button>
+	                <button type="submit" class="button button-block"/>Log In</button>
           
                 </form>
 
