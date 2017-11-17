@@ -6,10 +6,13 @@
 	  <div class="l-col">
 	  	{{> post/mainpost}}
 	  	{{> post/post-block}}
+
+	  	{{#each}}
+	  	   {{> post/comment}}
+	  	{{/each}}   
+	  {{!-- 	 {{> post/comment}}
 	  	 {{> post/comment}}
-	  	 {{> post/comment}}
-	  	 {{> post/comment}}
-	  	 {{> post/comment}}
+	  	 {{> post/comment}} --}}
 	  </div>
 
 	  <div class="r-col">

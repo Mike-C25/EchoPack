@@ -37,8 +37,8 @@ $(document).ready(function() {
     });
 
     //does a post to api/User route and if successfull brings us back to the home page logged in.
-    function loginUser(username, password) {
-       $.post("/api/login", {
+        function loginUser(username, password) {
+       $.get("/api/login", {
           username: username,
           password: password
        }).then(function(data) {
@@ -48,6 +48,17 @@ $(document).ready(function() {
        //    console.log(err);
        });
     };
+    // function loginUser(username, password) {
+    //    $.post("/api/login", {
+    //       username: username,
+    //       password: password
+    //    }).then(function(data) {
+    //       window.location.replace(data);
+    //       // If there's an error, log the error
+    //    //}).catch(function(err) {  //#### erroring out here for some reason
+    //    //    console.log(err);
+    //    });
+    // };
 
   
     signupForm.on('submit', function(e) {
