@@ -1,5 +1,5 @@
 $(document).ready(function() {
-   
+
 
     const clockModule = $('#watch-time');
     const tempDate = $('.date').html(moment().format('MMMM Do YYYY'));
@@ -16,6 +16,22 @@ $(document).ready(function() {
 
 
     // $('.header').css('background', hexArray[randBg]);
+
+
+     // $.get("/api/topthree", function(data){
+     //    console.log("Boxes: " + JSON.stringify(data));
+
+
+     // });
+
+
+     $.get("/api/usercount", function(data){
+        console.log("Users: " + JSON.stringify(data) +data.count);
+
+        $('#users-count').text("Total Users:   " + data.count);
+        
+
+     });
 
     $(window).scroll(function() {
         if ($(window).scrollTop() >= 200) {
