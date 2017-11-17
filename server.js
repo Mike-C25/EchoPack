@@ -7,7 +7,7 @@
 const express = require('express');
 const bodyParser = require('body-parser');
 const cookieParser = require('cookie-parser');
-var session = require("express-session");
+const session = require("express-session");
 // const sassMiddleware = require('node-sass-middleware')
 const path = require('path');
 const exphbs = require('express-handlebars');
@@ -48,6 +48,7 @@ app.use('/public', express.static(path.join(__dirname, 'public')));
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 app.use(cookieParser());
+app.use(session({ secret: 'keyboard cat',resave: true, saveUninitialized:true})); // session secret
 app.use(passport.initialize());
 app.use(passport.session());
 //Use Controllers
