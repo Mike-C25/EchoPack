@@ -19,6 +19,7 @@ module.exports = function(app) {
  
 //##################################################################################################
 // GET route for getting all of the users or specific one
+
 // ############### COMMENTING OUT FOR NOW AS PASSPORT AS REPLACED THE NEED FOR THIS BELOW ########
   // app.get("/api/:User?", function(req, res) {
   //   if (req.params.User){
@@ -32,6 +33,7 @@ module.exports = function(app) {
   //       // We have access to the Useres as an argument inside of the callback function
   //       res.json(dbUser);
   //     });
+
 
   //   }
 
@@ -50,7 +52,7 @@ module.exports = function(app) {
 
 //
 // POST route for saving a new User
-  app.post("/api/User", function(req, res) {
+  app.post("/api/Users", function(req, res) {
     
     console.log("User Data:");
     console.log(req.body);
@@ -75,7 +77,7 @@ module.exports = function(app) {
   });
 
 // DELETE route for deleting User
-  app.delete("/api/User/:id", function(req, res) {
+  app.delete("/api/Users/:id", function(req, res) {
     db.User.destroy({
       where: {
         id: req.params.id
@@ -86,7 +88,7 @@ module.exports = function(app) {
   });
 
 // PUT route for updating User
-  app.put("/api/User", function(req, res) {
+  app.put("/api/Users", function(req, res) {
     db.User.update({
       firstName: req.body.firstName,
       lastName: req.body.lastName,
