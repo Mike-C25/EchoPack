@@ -13,27 +13,12 @@ module.exports = function(app) {
 
   app.post('/api/login', 
     passport.authenticate('local'), function(req,res) {
-       console.log(req.body);
        res.redirect("/");
     });
 
  
 //##################################################################################################
 // GET route for getting all of the users or specific one
-<<<<<<< HEAD
-  app.get("/api/User", function(req, res) {
-    if (req.params.User){
-      // findAll returns all entries for a table when used with no options
-      db.User.findOne({
-        where: {
-          userName: req.params.userName,
-          password: req.params.pass
-        }
-      }).then(function(dbUser) {
-        // We have access to the Useres as an argument inside of the callback function
-        res.json(dbUser);
-      });
-=======
 // ############### COMMENTING OUT FOR NOW AS PASSPORT AS REPLACED THE NEED FOR THIS BELOW ########
   // app.get("/api/:User?", function(req, res) {
   //   if (req.params.User){
@@ -47,7 +32,6 @@ module.exports = function(app) {
   //       // We have access to the Useres as an argument inside of the callback function
   //       res.json(dbUser);
   //     });
->>>>>>> 26bcd7d091db6f2aae7db57f749d1f5e83c5a592
 
   //   }
 
