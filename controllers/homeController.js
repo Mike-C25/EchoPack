@@ -60,6 +60,23 @@ router.get("/api/usercount", function(req, res) {
 
 });
 
+     router.get("/api/checkbox", function(req, res) {
+      console.log("triggered single box");
+      console.log(req.query.data.box);
+            db.Box.findOne({
+                where: {
+                    title: req.query.data.box
+                }
+            }).then(function(dbBox) {
+                // We have access to the Boxes as an argument inside of the callback function
+                console.log(dbBox);
+                res.send(dbBox);
+            }).catch(function(err) {
+                res.send(err);
+            })
+
+    });
+
 
 module.exports = router;
 

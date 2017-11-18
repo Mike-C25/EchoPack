@@ -25,6 +25,8 @@ module.exports = function(app) {
 
 
     });
+
+
     // // GET route for getting all of the forums(boxes) or specific one
     //   app.get("/api/:Box?", function(req, res) {
     //     if (req.params.Box){
@@ -63,7 +65,8 @@ module.exports = function(app) {
         db.Box.create({
                 // authorUserId: "", // ???
                 title: req.body.forumTitle,
-                description: req.body.forumDescription
+                description: req.body.forumDescription,
+                UserId:1
                 // text: req.body.text,
                 // complete: req.body.complete
             }).then(function(dbBox) {

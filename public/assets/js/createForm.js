@@ -2,6 +2,7 @@ $(document).ready(function() {
 
 
     $("#post-form").hide();
+
     $('#forumSubmit').on('click', function(e) {
         e.preventDefault();
         // console.log('clicked');
@@ -21,20 +22,22 @@ $(document).ready(function() {
         console.log('/api/box/' + fTitle);
         $.ajax('/api/box/' + fTitle, { type: 'POST', data: forumInfo }).then(function() {
             console.log("Forum Created");
+               $('#forumT').val('');
+               $('#forumD').val('');
             // location.reload();
         });
-    });
 
+     });   
 
-    $(window).on('click', "#postSubmit", function(e) {
-        e.preventDefault();
+    $('#postSubmit').on('click', function(e) {
+          e.preventDefault();
 
-        let pForum = $('postF').val();
-        let pTitle = $('#postT').val();
-        let pDesc = $('#postC').val();
+        let pForum = $('.postF').val();
+        let pTitle = $('.postT').val();
+        let pDesc = $('.postC').val();
 
         let postInfo = {
-            postForum: pForum,
+            box: pForum,
             postTitle: pTitle,
             postContent: pDesc
         }
@@ -44,26 +47,48 @@ $(document).ready(function() {
         //     return;
         // }
 
+       // $.get('/api/box/' + pForum, { type: 'GET', data: postInfo }).then(function() {
+       //     console.log(dbBox);
+       //     if (false === true) 
+            $.get('api/checkbox',{data:postInfo}, function(data) {
+              console.log("do i make it here? ")  
+              console.log(JSON.stringify(data));
 
+                $.ajax('/api/posts/' + pForum + '/' + pTitle, { type: 'POST', data: postInfo }).then(function() {
+                    console.log("Post Created");
 
-        $.ajax('/api/' + pForum + '/' + pTitle, { type: 'POST', data: postInfo }).then(function() {
-            console.log("Post Created");
+                    $('.postF').val('');
+                    $('.postT').val('');
+                    $('.postC').val('');
+                   // location.reload();
+                });
+            });
+                // res.render("home");
+            
+
+          
             // location.reload();
-        });
+       
+
+
+        
+    });    
+
+
+
+    $('.tab a').on('click', function(e) {
+
+        e.preventDefault();
+
+        $(this).parent().addClass('active');
+        $(this).parent().siblings().removeClass('active');
+
+        target = $(this).attr('href');
+
+        $('.tab-content > div').not(target).hide();
+
+        $(target).fadeIn(600);
+
     });
-});
-
-$('.tab a').on('click', function(e) {
-
-    e.preventDefault();
-
-    $(this).parent().addClass('active');
-    $(this).parent().siblings().removeClass('active');
-
-    target = $(this).attr('href');
-
-    $('.tab-content > div').not(target).hide();
-
-    $(target).fadeIn(600);
 
 });

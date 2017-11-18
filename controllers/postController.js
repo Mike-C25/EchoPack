@@ -45,10 +45,12 @@ module.exports = function(app) {
   });
 
   // POST route for saving a new post
-  app.post("/api/posts", function(req, res) {
+  app.post("/api/posts/:forum/:title", function(req, res) {
     db.Post.create({
-      title: req.body.title,
-      content: req.body.content
+      BoxId:2,
+      UserId:1,
+      title: req.body.postTitle,
+      content: req.body.postContent
     }).then(function(dbPost) {
       res.json(dbPost);
     });
