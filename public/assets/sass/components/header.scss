@@ -31,27 +31,34 @@
         background-repeat: no-repeat;
         background-size: contain;
         color: white;
-        transition: all .333s ease-in-out;  
-        &:hover {
-            transform: scale(1.05);
-            &:after{
+        transition: all .333s ease-in-out;
+
+        &.slidein {
+
+            &:after {
                 left: 100%;
                 transition: all .2s ease-in-out .1s;
                 opacity: 1;
-                z-index: -1;
             }
         }
-        &:after{
+        &:after {
             position: absolute;
             top: 50%;
             transform: translateY(-50%);
-            left: 100%;
             content: "EchoBox";
             display: block;
             color: white;
             opacity: 0;
             transition: all .2s ease-in-out .25s;
-            z-index: -1;
+        }
+        &:hover {
+            transform: scale(1.05);
+            &:after {
+                left: 100%;
+                transition: all .2s ease-in-out .1s;
+                opacity: 1;
+                z-index: -1;
+            }
         }
     }
     #link-box {

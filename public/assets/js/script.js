@@ -1,5 +1,5 @@
 $(document).ready(function() {
-
+    $('#logo-box').addClass('slidein');
 
     const clockModule = $('#watch-time');
     const tempDate = $('.date').html(moment().format('MMMM Do YYYY'));
