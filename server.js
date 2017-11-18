@@ -18,6 +18,7 @@ const home = require('./controllers/homeController.js');
 const box = require('./controllers/boxController.js');
 const post = require('./controllers/postController.js');
 const user = require('./controllers/userController.js');
+const comment = require('./controllers/commentController.js');
 //const comment
 
 const env = require('dotenv/config')
@@ -57,6 +58,7 @@ app.use('/', home);
 box(app);
 post(app);
 user(app);
+comment(app);
 //comment(app);
 
 

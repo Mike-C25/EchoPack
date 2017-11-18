@@ -4,12 +4,14 @@ var db = require("../models");
 // =============================================================
 module.exports = function(app) {
 
-app.post("/api/:forum/:title", function(req, res) {
-    db.Post.create({
-        BoxId: req.body.boxID,
+app.post("/api/post/f", function(req, res) {
+    db.Comment.create({
+        PostId: req.body.fID,
         UserId: 1,
-        title: req.body.postTitle,
-        content: req.body.postContent
+        authorUserId: 1,
+        content: req.body.comment,
+        score: 0
+
     }).then(function(dbPost) {
         res.json(dbPost);
     });

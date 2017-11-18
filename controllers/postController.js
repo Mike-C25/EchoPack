@@ -44,7 +44,7 @@ app.get("/post", function(req, res) {
 
         db.Comment.findAll({
             where: {
-                id: req.query.id
+                PostId: req.query.id
             }
         }).then(function(dbComment) {
           let hbsObj = {

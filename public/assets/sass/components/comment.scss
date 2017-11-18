@@ -149,9 +149,10 @@
         }
 
         .score {
-            position: absolute;
+            position: relative;
             right: 5%;
-            top: 0px;
+            top: 20px;
+            float: right;
         }
     }
     &:after {

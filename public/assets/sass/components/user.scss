@@ -16,11 +16,10 @@
             clear: both;
         }
         ul {
-            -webkit-webkit-padding-start: 0px;
+            -webkit-padding-start: 0px;
             -moz-webkit-padding-start: 0px;
             -ms-webkit-padding-start: 0px;
             -o-webkit-padding-start: 0px;
-            webkit-padding-start: 0px;
         }
         li a {
             text-decoration: none;
@@ -49,8 +48,8 @@
     }
     .tab-content {
         #signup {
-        	width: 75%;
-        	margin: 0px auto;
+            width: 75%;
+            margin: 0px auto;
         }
         h1 {
             text-align: center;
@@ -62,11 +61,11 @@
         label {
             margin: 10px 0px;
         }
-        input{
-        	width: 100%;
-        	height: 30px;
-        	border: 1px solid #cdcdcd;
-        	border-radius: 2px;
+        input {
+            width: 100%;
+            height: 30px;
+            border: 1px solid #cdcdcd;
+            border-radius: 2px;
         }
         .top-row {
             &:after {
