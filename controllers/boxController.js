@@ -22,7 +22,7 @@ module.exports = function(app) {
                     where: {
                         BoxId: data.dataValues.id
                     },
-                    limit: 10
+                    limit: 13
                 }).then(function(dbPost) {
                     let hbsObj = {
                         post: dbPost,
