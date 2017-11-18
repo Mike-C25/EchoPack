@@ -37,7 +37,7 @@ $(document).ready(function() {
     });
 
     //does a post to api/User route and if successfull brings us back to the home page logged in.
-        function loginUser(username, password) {
+    function loginUser(username, password) {
        $.get("/api/login", {
           username: username,
           password: password
