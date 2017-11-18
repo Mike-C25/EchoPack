@@ -21,7 +21,11 @@
             border-bottom: 17px solid $bl;
             margin-bottom: 5px;
             cursor: pointer;
+            font-size: 18px;
             transition: all .2s ease-in-out;
+            @media screen and (max-width: 920px) {
+                font-size: 12px;
+            }
             &:hover {
                 transform: translateY(-2px);
                 border-bottom: 17px solid #cdcdcd;
@@ -36,7 +40,7 @@
                 min-width: 50px;
                 letter-spacing: 1px;
                 text-align: center;
-                font-size: 12   px;
+                font-size: 12px;
             }
         }
         .down-v {
@@ -48,7 +52,11 @@
             border-right: 9px solid transparent;
             border-top: 17px solid $bl;
             cursor: pointer;
+            font-size: 18px;
             transition: all .2s ease-in-out;
+            @media screen and (max-width: 920px) {
+                font-size: 12px;
+            }
             &:hover {
                 transform: translateY(2px);
                 border-top: 17px solid #cdcdcd;
@@ -63,7 +71,7 @@
                 min-width: 50px;
                 letter-spacing: 1px;
                 text-align: center;
-                font-size: 12   px;
+                font-size: 12px;
             }
         }
         &:after {

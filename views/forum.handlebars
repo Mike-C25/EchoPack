@@ -5,6 +5,19 @@
 
 <div class="container">
 	<div class="row">
+	  
+
+	  <div class="r-col">
+	  	{{!-- {{if login=true}}
+	  		{{> global/createforum}}
+	  	{{else}}
+
+	  	{{/if}} --}}
+	  	{{> global/createform}}
+	    {{> global/user}}
+	    {{> global/timedate}}
+	    {{> global/sentiment}}
+	  </div>
 	  <div class="l-col">
 	  	{{#with box}}
 	  		{{> forum/infobox}}
@@ -23,18 +36,6 @@
 	  	 {{> forum/box}}
 	  	 {{> forum/box}}
 	  	 {{> forum/box}} --}}
-	  </div>
-
-	  <div class="r-col">
-	  	{{!-- {{if login=true}}
-	  		{{> global/createforum}}
-	  	{{else}}
-
-	  	{{/if}} --}}
-	  	{{> global/createform}}
-	    {{> global/user}}
-	    {{> global/timedate}}
-	    {{> global/sentiment}}
 	  </div>
 	</div>  
 

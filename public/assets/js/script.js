@@ -32,7 +32,7 @@ $(document).ready(function() {
     })
 
     $.get("/api/usercount", function(data) {
-        console.log("Users: " + JSON.stringify(data) + data.count);
+        // console.log("Users: " + JSON.stringify(data) + data.count);
 
         $('#users-count').text("Total Users:   " + data.count);
 
