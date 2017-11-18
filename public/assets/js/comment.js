@@ -19,7 +19,8 @@ $(document).ready(function() {
             type: "POST",
             data: commentInfo
         }).then(function(data) {
-        	console.log(data);
+        	// console.log(data);
+        	location.reload();
         })
         // console.log(fID);
 

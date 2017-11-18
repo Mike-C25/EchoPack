@@ -7,7 +7,6 @@ var db = require('../models');
 router.get("/", function(req, res) {
     // res.render("home");
     db.Box.findAll({
-        limit: 3,
         // order:[[sequelize.col('colName'), 'DESC']]
     }).then(function(dbBox) {
 
