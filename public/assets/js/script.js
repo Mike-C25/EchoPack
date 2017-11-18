@@ -25,10 +25,10 @@ $(document).ready(function() {
     // });
 
     $('.box-card').on('click', function() {
-
+        // console.log($(this));
         let title = $(this).children()[0].innerHTML;
 
-        window.location.href = "/box/" + title;
+        window.location.href = "/box?t=" + title;
     })
 
     $.get("/api/usercount", function(data) {

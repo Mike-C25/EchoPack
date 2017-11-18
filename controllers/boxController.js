@@ -7,24 +7,80 @@ var db = require("../models"); // May need to specify .js file
 
 module.exports = function(app) {
 
-    app.get("/api/box/:box?", function(req, res) {
-      console.log("triggered");
-        if (req.params.Box) {
+    app.get("/box", function(req, res) {
+        if (req.query.t) {
             // findAll returns all entries for a table when used with no options
             db.Box.findOne({
                 where: {
-                    title: req.params.Box
+                    title: req.query.t
                 }
-            }).then(function(dbBox) {
-                // We have access to the Boxes as an argument inside of the callback function
-                res.json(dbBox);
+            }).then(function(data) {
+                console.log(data.dataValues.id);
+
+                db.Post.findAll({
+                    where: {
+                        id: data.dataValues.id
+                    },
+                    limit: 10
+                }).then(function(dbPost) {
+                    let hbsObj = {
+                        post: dbPost
+                    }
+                    console.log(hbsObj);
+                    // We have access to the Boxes as an argument inside of the callback function
+                    res.render("forum", hbsObj);
+                });
+                // res.render("forum");
             });
-        } else {
-            console.log("This is supposed to redirect you to 404 but we don't have one sorry.")
         }
 
+        //     db.Post.findAll({
+        //         where: {
+        //             title: req.params.Box
+        //         },
+        //         limit: 10
+        //     }).then(function(dbBox) {
+        //         let hbsObj = {
+        //             post: dbBox
+        //         }
+        //         console.log(JSON.stringify(dbBox));
+        //         // We have access to the Boxes as an argument inside of the callback function
+        //         res.render("forum", hbsObj);
+        //     });
+        // } else {
+        //     console.log("This is supposed to redirect you to 404 but we don't have one sorry.")
+        //     res.redirect('/');
+        // }
 
-    });
+
+        // res.render("forum");
+    })
+    // app.get("/box", function(req, res) {
+    //     console.log("HELLO???");
+    //     if (req.query.t) {
+    //         // findAll returns all entries for a table when used with no options
+
+    //           console.log(req.query.t);
+    //         db.Box.findAll({
+    //             where: {
+    //                 title: req.params.Box
+    //             },
+    //             limit: 10
+    //         }).then(function(dbBox) {
+    //             let hbsObj = {
+    //                 post: dbBox
+    //             }
+    //             console.log(JSON.stringify(dbBox));
+    //             // We have access to the Boxes as an argument inside of the callback function
+    //             res.render("forum", hbsObj);
+    //         });
+    //     } else {
+    //         console.log("This is supposed to redirect you to 404 but we don't have one sorry.")
+    //         res.redirect('/');
+    //     }
+
+
+    // });
     // // GET route for getting all of the forums(boxes) or specific one
     //   app.get("/api/:Box?", function(req, res) {
     //     if (req.params.Box){
