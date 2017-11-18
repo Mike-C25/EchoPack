@@ -24,6 +24,8 @@ $(document).ready(function() {
             console.log("Forum Created");
             $('#forumT').val('');
             $('#forumD').val('');
+
+            window.location.href = "/";
             // location.reload();
         });
 
@@ -63,6 +65,8 @@ $(document).ready(function() {
                 $('.postF').val('');
                 $('.postT').val('');
                 $('.postC').val('');
+
+                window.location.href = "/box?t=" + postInfo.box;
                 // location.reload();
             });
         });
