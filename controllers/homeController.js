@@ -27,9 +27,7 @@ router.get("/create", function(req, res) {
 })
 
 // /box/:forum name
-router.get("/box/:fn?", function(req, res) {
-    res.render("forum");
-})
+
 
 // /post/:post title
 router.get("/post/:pt?", function(req, res) {
@@ -37,15 +35,6 @@ router.get("/post/:pt?", function(req, res) {
 })
 
 // router.get("/api/topthree", function(req, res) {
-
-
-//      burger.all(function(data) {
-//         var hbsObject = {
-//             burger: data
-//         };
-//         console.log(hbsObject);
-//         res.render("index", hbsObject);
-//     });
 
 
 // });
