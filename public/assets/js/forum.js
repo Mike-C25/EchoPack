@@ -1,7 +1,9 @@
 $(document).ready(function() {
 
     console.log();
-
+    $('.body-container').on('click', function() {
+        let pID = $(this).children()[0];
+    })
 
     // if (window.location.href.includes("?t=")) {
     //     let boxName = window.location.href;
