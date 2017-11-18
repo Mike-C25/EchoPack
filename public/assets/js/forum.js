@@ -1,9 +1,12 @@
 $(document).ready(function() {
 
-    console.log();
+
     $('.body-container').on('click', function() {
-        let pID = $(this).children()[0];
-    })
+        let pID = $(this).children()[0].dataset.id;
+
+        window.location.href = "/post?id=" + pID;
+
+    });
 
     // if (window.location.href.includes("?t=")) {
     //     let boxName = window.location.href;

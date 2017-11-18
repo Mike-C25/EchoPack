@@ -1,16 +1,14 @@
 <div class="comment-container">
 	{{> global/vote}}
 	<div class="body-container">
-		<h3>Title</h3>
-		<span class="score"></span>
+		<span class="score">{{score}}</span>
 		<a href="" title="">
-			<p class="user">User</p>
+			<p class="user">{{authorUserId}}</p>
 		</a>
-		{{#each this.comments}} {{!??}}
+		
 			<div class="comment">
-				<p>{{this.comments.content}}</p>
+				<p>{{content}}</p>
 			</div>
-		{{/each}}
 		<div class="reply-section">
 		   <section class="c-reply">reply</section>
 		   <section class="reply-pullout">

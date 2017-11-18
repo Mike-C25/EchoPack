@@ -30,9 +30,9 @@ router.get("/create", function(req, res) {
 
 
 // /post/:post title
-router.get("/post/:pt?", function(req, res) {
-    res.render("postpage");
-})
+// router.get("/post/:pt?", function(req, res) {
+//     res.render("postpage");
+// })
 
 // router.get("/api/topthree", function(req, res) {
 
