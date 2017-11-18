@@ -6,8 +6,9 @@
 <div class="container">
 	<div class="row">
 	  <div class="l-col">
-
-	  	{{> forum/infobox}}
+	  	{{#with box}}
+	  		{{> forum/infobox}}
+	  	{{/with}}
 
 	  	{{#each post}}
 	  	   {{> forum/box}}

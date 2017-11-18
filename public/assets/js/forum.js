@@ -1,17 +1,18 @@
 $(document).ready(function() {
 
-  console.log();
+    console.log();
 
 
-  if(window.location.href.includes("?t=")){
-    let boxName = window.location.href;
-    boxName = window.location.href.substring(boxName.indexOf("?t=") +3);
-    console.log(boxName);
-    $.ajax('/api/boxinfo', { type: 'GET', data: boxName }).then(function() {
-            console.log("Forum Created");
-            // location.reload();
-        });
-  }
+    // if (window.location.href.includes("?t=")) {
+    //     let boxName = window.location.href;
+    //     boxName = window.location.href.substring(boxName.indexOf("?t=") + 3);
+    //     console.log(boxName);
+    //     $.ajax('/api/boxinfo', { type: 'GET', data: boxName }).then(function(data) {
+    //         console.log(data);
+    //         // console.log("Forum Created");
+    //         // location.reload();
+    //     });
+    // }
 
 
     // // The code below handles the case where we want to get posts for a specific box

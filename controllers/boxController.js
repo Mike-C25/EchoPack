@@ -25,10 +25,11 @@ module.exports = function(app) {
                     limit: 10
                 }).then(function(dbPost) {
                     let hbsObj = {
-                        post: dbPost
+                        post: dbPost,
+                        box: data
                     }
                     console.log(dbPost);
-                    console.log(hbsObj);
+                    console.log(hbsObj.box);
                     // We have access to the Boxes as an argument inside of the callback function
                     res.render("forum", hbsObj);
                 });
@@ -36,15 +37,15 @@ module.exports = function(app) {
             });
         }
 
-        app.get("/api/boxinfo", function(req,res) {
-            db.Box.findOne({
-                where: {
-                    title: req.body.boxName
-                }
-            }).then(function(dbBox) {
-                res.send(dbBox);
-            })
-        })
+        // app.get("/api/boxinfo", function(req,res) {
+        //     db.Box.findOne({
+        //         where: {
+        //             title: req.body.boxName
+        //         }
+        //     }).then(function(dbBox) {
+        //         res.send(dbBox);
+        //     })
+        // })
 
         //     db.Post.findAll({
         //         where: {
