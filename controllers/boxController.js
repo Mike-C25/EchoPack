@@ -10,6 +10,7 @@ module.exports = function(app) {
     app.get("/box", function(req, res) {
         if (req.query.t) {
             // findAll returns all entries for a table when used with no options
+            console.log('Querying: ' + req.query.t);
             db.Box.findOne({
                 where: {
                     title: req.query.t
@@ -19,13 +20,14 @@ module.exports = function(app) {
 
                 db.Post.findAll({
                     where: {
-                        id: data.dataValues.id
+                        BoxId: data.dataValues.id
                     },
                     limit: 10
                 }).then(function(dbPost) {
                     let hbsObj = {
                         post: dbPost
                     }
+                    console.log(dbPost);
                     console.log(hbsObj);
                     // We have access to the Boxes as an argument inside of the callback function
                     res.render("forum", hbsObj);
@@ -33,6 +35,16 @@ module.exports = function(app) {
                 // res.render("forum");
             });
         }
+
+        app.get("/api/boxinfo", function(req,res) {
+            db.Box.findOne({
+                where: {
+                    title: req.body.boxName
+                }
+            }).then(function(dbBox) {
+                res.send(dbBox);
+            })
+        })
 
         //     db.Post.findAll({
         //         where: {
