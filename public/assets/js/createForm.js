@@ -22,15 +22,15 @@ $(document).ready(function() {
         console.log('/api/box/' + fTitle);
         $.ajax('/api/box/' + fTitle, { type: 'POST', data: forumInfo }).then(function() {
             console.log("Forum Created");
-               $('#forumT').val('');
-               $('#forumD').val('');
+            $('#forumT').val('');
+            $('#forumD').val('');
             // location.reload();
         });
 
-     });   
+    });
 
     $('#postSubmit').on('click', function(e) {
-          e.preventDefault();
+        e.preventDefault();
 
         let pForum = $('.postF').val();
         let pTitle = $('.postT').val();
@@ -47,32 +47,35 @@ $(document).ready(function() {
         //     return;
         // }
 
-       // $.get('/api/box/' + pForum, { type: 'GET', data: postInfo }).then(function() {
-       //     console.log(dbBox);
-       //     if (false === true) 
-            $.get('api/checkbox',{data:postInfo}, function(data) {
-              console.log("do i make it here? ")  
-              console.log(JSON.stringify(data));
+        // $.get('/api/box/' + pForum, { type: 'GET', data: postInfo }).then(function() {
+        //     console.log(dbBox);
+        //     if (false === true) 
+        $.get('api/checkbox', { data: postInfo }, function(data) {
+            console.log("do i make it here? ");
+            console.log(JSON.stringify(data));
 
-                $.ajax('/api/posts/' + pForum + '/' + pTitle, { type: 'POST', data: postInfo }).then(function() {
-                    console.log("Post Created");
+            let boxID = data.id;
+            postInfo.boxID = boxID;
 
-                    $('.postF').val('');
-                    $('.postT').val('');
-                    $('.postC').val('');
-                   // location.reload();
-                });
+            $.ajax('/api/posts/' + pForum + '/' + pTitle, { type: 'POST', data: postInfo }).then(function() {
+                console.log("Post Created");
+
+                $('.postF').val('');
+                $('.postT').val('');
+                $('.postC').val('');
+                // location.reload();
             });
-                // res.render("home");
-            
-
-          
-            // location.reload();
-       
+        });
+        // res.render("home");
 
 
-        
-    });    
+
+        // location.reload();
+
+
+
+
+    });
 
 
 

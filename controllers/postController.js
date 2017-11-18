@@ -47,7 +47,7 @@ module.exports = function(app) {
   // POST route for saving a new post
   app.post("/api/posts/:forum/:title", function(req, res) {
     db.Post.create({
-      BoxId:2,
+      BoxId: req.body.boxID,
       UserId:1,
       title: req.body.postTitle,
       content: req.body.postContent
