@@ -5,9 +5,9 @@ A forum that provides a way for people communicate to other though a simple and 
 Contributors
 ________________________
 
-[Mike](https://github.com/Mike-C25)
-[Miguel](https://github.com/miguelf6022e23)
-[Vin](https://github.com/vpasquar)
+[Mike](https://github.com/Mike-C25) /newline
+[Miguel](https://github.com/miguelf6022e23) /newline
+[Vin](https://github.com/vpasquar) /newline
 [Rafique]
 
 ___
