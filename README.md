@@ -1,5 +1,15 @@
 # EchoPack(WIP)
 A forum that provides a way for people communicate to other though a simple and clean interface
+
+
+Contributors
+________________________
+
+[Mike](https://github.com/Mike-C25)
+[Miguel](https://github.com/miguelf6022e23)
+[Vin](https://github.com/vpasquar)
+[Rafique]
+
 ___
 
 ## Built With
