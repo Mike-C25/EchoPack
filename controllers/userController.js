@@ -11,12 +11,9 @@ module.exports = function(app) {
 
     // The following is the post route for authentication. 
 
-    app.post('/api/login',
-        passport.authenticate('local', {
-            successRedirect: '/',
-            failureRedirect: '/userpage',
-            failureFlash: true
-        })
+    app.post('/api/login',passport.authenticate('local'), function(req, res){
+          res.json(req.user);
+        }
     );
 
 

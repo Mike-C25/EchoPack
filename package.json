@@ -4,6 +4,7 @@
   "description": "A forum that provides a way for people communicate to other users about relevant topics",
   "main": "index.js",
   "dependencies": {
+    "bcrypt-nodejs": "0.0.3",
     "body-parser": "^1.18.2",
     "concurrently": "^3.5.0",
     "cookie-parser": "^1.4.3",

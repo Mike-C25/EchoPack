@@ -38,11 +38,13 @@ $(document).ready(function() {
 
     //does a post to api/User route and if successfull brings us back to the home page logged in.
     function loginUser(username, password) {
-       $.get("/api/login", {
+        console.log(username, password)
+       $.post("/api/login", {
           username: username,
           password: password
        }).then(function(data) {
-          window.location.replace(data);
+          console.log(data);
+          // window.location.replace(data);
           // If there's an error, log the error
        //}).catch(function(err) {  //#### erroring out here for some reason
        //    console.log(err);
